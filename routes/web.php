@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Backend\UserController;
+use App\Http\Controllers\Backend\ListitemController;
 use App\Http\Controllers\Backend\MediasocialController;
 
 /*
@@ -39,4 +40,22 @@ Route::prefix('backpanel')->group(function () {
         Route::get('/{id}/show', [MediasocialController::class, 'show'])->name('mediasocial.show');
         Route::post('/{id}/update', [MediasocialController::class, 'update'])->name('mediasocial.update');
     });
+
+    //List Item
+    Route::prefix('listitem')->group(function(){
+        Route::get('/',[ListitemController::class, 'index'])->name('listitem.index');
+        Route::get('/getAll', [ListitemController::class, 'getAll'])->name('listitem.getAll');
+        Route::get('/create', [ListitemController::class, 'create'])->name('listitem.create');
+        Route::post('/', [ListitemController::class, 'store'])->name('listitem.store');
+        Route::post('/{id}/changeStatus', [ListitemController::class, 'changeStatus'])->name('listitem.changeStatus');
+        Route::get('/{id}/show', [ListitemController::class, 'show'])->name('listitem.show');
+        Route::post('/{id}/update', [ListitemController::class, 'update'])->name('listitem.update');
+    });
+});
+
+// Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {
+//     \UniSharp\LaravelFilemanager\Lfm::routes();
+// });
+Route::group(['prefix' => 'laravel-filemanager'], function () {
+    \UniSharp\LaravelFilemanager\Lfm::routes();
 });

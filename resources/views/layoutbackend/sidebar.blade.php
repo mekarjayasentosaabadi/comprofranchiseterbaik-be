@@ -62,7 +62,7 @@
                     data-feather="share-2"></i><span class="menu-title text-truncate"
                     data-i18n="Chat">Media Socials</span></a>
         </li>
-        <li class=" nav-item"><a class="d-flex align-items-center" href="app-todo.html"><i
+        <li class=" nav-item {{ $menu == 'listitem' ? 'active' : '' }}"><a class="d-flex align-items-center" href="{{ route('listitem.index') }}"><i
                     data-feather="list"></i><span class="menu-title text-truncate"
                     data-i18n="Todo">List Items</span></a>
         </li>
