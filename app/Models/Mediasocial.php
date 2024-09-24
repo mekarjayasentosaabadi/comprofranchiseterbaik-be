@@ -13,7 +13,7 @@ class Mediasocial extends Model
         'icons',
         'is_active'
     ];
-    protected $table = 'mediasocials';
+    protected $table = 'mediasosials';
 
     //relation to franchisesmedsos
     public function franchisemedsos(){

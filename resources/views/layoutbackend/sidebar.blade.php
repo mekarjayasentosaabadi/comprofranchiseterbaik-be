@@ -58,7 +58,7 @@
         <li class=" nav-item {{ $menu == 'user' ? 'active' : '' }}"><a class="d-flex align-items-center" href="{{ route('user.index') }}"><i
                     data-feather="user"></i><span class="menu-title text-truncate" data-i18n="user">Users</span></a>
         </li>
-        <li class=" nav-item"><a class="d-flex align-items-center" href="app-chat.html"><i
+        <li class=" nav-item {{ $menu == 'mediasocial' ? 'active' : '' }}"><a class="d-flex align-items-center" href="{{ route('mediasocial.index') }}"><i
                     data-feather="share-2"></i><span class="menu-title text-truncate"
                     data-i18n="Chat">Media Socials</span></a>
         </li>

@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Backend\UserController;
+use App\Http\Controllers\Backend\MediasocialController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,5 +28,15 @@ Route::prefix('backpanel')->group(function () {
         Route::get('/{id}/edit', [UserController::class, 'edit'])->name('user.edit');
         Route::post('/{id}', [UserController::class, 'update'])->name('user.update');
         Route::post('/{id}/resetpassword', [UserController::class, 'resetpassword'])->name('user.resetpassword');
+    });
+
+    //Media Social
+    Route::prefix('mediasocial')->group(function(){
+        Route::get('/',[MediasocialController::class, 'index'])->name('mediasocial.index');
+        Route::get('/getAll', [MediasocialController::class, 'getAll'])->name('mediasocial.getAll');
+        Route::post('/', [MediasocialController::class, 'store'])->name('mediasocial.store');
+        Route::post('/{id}/changeStatus', [MediasocialController::class, 'changeStatus'])->name('mediasocial.changeStatus');
+        Route::get('/{id}/show', [MediasocialController::class, 'show'])->name('mediasocial.show');
+        Route::post('/{id}/update', [MediasocialController::class, 'update'])->name('mediasocial.update');
     });
 });
