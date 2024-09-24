@@ -55,7 +55,7 @@
         <li class=" navigation-header"><span data-i18n="Apps &amp; Pages">Master &amp; Data</span><i
             data-feather="more-horizontal"></i>
         </li>
-        <li class=" nav-item"><a class="d-flex align-items-center" href="app-email.html"><i
+        <li class=" nav-item {{ $menu == 'user' ? 'active' : '' }}"><a class="d-flex align-items-center" href="{{ route('user.index') }}"><i
                     data-feather="user"></i><span class="menu-title text-truncate" data-i18n="user">Users</span></a>
         </li>
         <li class=" nav-item"><a class="d-flex align-items-center" href="app-chat.html"><i

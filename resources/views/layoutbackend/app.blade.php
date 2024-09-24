@@ -33,7 +33,7 @@
             </div>
             <div class="content-body">
                 <!-- Dashboard Analytics Start -->
-
+                @yield('content')
                 <!-- Dashboard Analytics end -->
 
             </div>
@@ -58,6 +58,11 @@
                     height: 14
                 });
             }
+            $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+            });
         })
     </script>
 </body>
