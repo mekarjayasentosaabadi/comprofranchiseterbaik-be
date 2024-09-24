@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Backend\UserController;
 use App\Http\Controllers\Backend\ListitemController;
 use App\Http\Controllers\Backend\MediasocialController;
+use App\Http\Controllers\Backend\HeaderbannerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -50,6 +51,17 @@ Route::prefix('backpanel')->group(function () {
         Route::post('/{id}/changeStatus', [ListitemController::class, 'changeStatus'])->name('listitem.changeStatus');
         Route::get('/{id}/show', [ListitemController::class, 'show'])->name('listitem.show');
         Route::post('/{id}/update', [ListitemController::class, 'update'])->name('listitem.update');
+    });
+
+    //header banner
+    Route::prefix('headerbanner')->group(function(){
+        Route::get('/',[HeaderbannerController::class, 'index'])->name('headerbanner.index');
+        Route::get('/getAll', [HeaderbannerController::class, 'getAll'])->name('headerbanner.getAll');
+        Route::post('/', [HeaderbannerController::class, 'store'])->name('headerbanner.store');
+        Route::post('/{id}/changeStatus', [HeaderbannerController::class, 'changeStatus'])->name('headerbanner.changeStatus');
+        Route::get('/{id}/show', [HeaderbannerController::class, 'show'])->name('headerbanner.show');
+        Route::post('/{id}/update', [HeaderbannerController::class, 'update'])->name('headerbanner.update');
+        // Route::get('/create', [HeaderbannerController::class, 'create'])->name('listitem.create');
     });
 });
 

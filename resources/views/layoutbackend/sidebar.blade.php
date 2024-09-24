@@ -66,7 +66,7 @@
                     data-feather="list"></i><span class="menu-title text-truncate"
                     data-i18n="Todo">List Items</span></a>
         </li>
-        <li class=" nav-item"><a class="d-flex align-items-center" href="app-calendar.html"><i
+        <li class=" nav-item {{ $menu == 'headerbanner' ? 'active' : '' }}"><a class="d-flex align-items-center" href="{{ route('headerbanner.index') }}"><i
                     data-feather="credit-card"></i><span class="menu-title text-truncate"
                     data-i18n="Calendar">Header Banner</span></a>
         </li>
