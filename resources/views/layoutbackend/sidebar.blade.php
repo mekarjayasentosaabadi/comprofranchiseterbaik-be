@@ -77,7 +77,7 @@
         <li class=" navigation-header"><span data-i18n="Apps &amp; Pages">Settings</span><i
             data-feather="more-horizontal"></i>
         </li>
-        <li class=" nav-item"><a class="d-flex align-items-center" href="app-kanban.html"><i
+        <li class=" nav-item {{ $menu == 'masterweb' ? 'active' : '' }}"><a class="d-flex align-items-center" href="{{ route('masterweb.index') }}"><i
             data-feather="settings"></i><span class="menu-title text-truncate"
             data-i18n="Kanban">Master Web</span></a>
         </li>

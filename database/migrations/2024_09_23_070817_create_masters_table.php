@@ -13,14 +13,14 @@ return new class extends Migration
     {
         Schema::create('masters', function (Blueprint $table) {
             $table->id();
-            $table->string('titleheader');
-            $table->text('descriptionheader');
-            $table->string('thumbnailheader');
-            $table->string('titlefooter');
-            $table->text('descriptionfooter');
-            $table->text('address');
-            $table->string('phone_number');
-            $table->string('whatsapp_number');
+            $table->string('titleheader')->nullable();
+            $table->text('descriptionheader')->nullable();
+            $table->string('thumbnailheader')->nullable();
+            $table->string('titlefooter')->nullable();
+            $table->text('descriptionfooter')->nullable();
+            $table->text('address')->nullable();
+            $table->string('phone_number')->nullable();
+            $table->string('whatsapp_number')->nullable();
             $table->timestamps();
         });
     }

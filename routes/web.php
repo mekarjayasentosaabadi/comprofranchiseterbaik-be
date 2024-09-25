@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Backend\UserController;
 use App\Http\Controllers\Backend\ProductController;
 use App\Http\Controllers\Backend\ListitemController;
+use App\Http\Controllers\Backend\MasterwebController;
 use App\Http\Controllers\Backend\MediasocialController;
 use App\Http\Controllers\Backend\HeaderbannerController;
 
@@ -77,6 +78,14 @@ Route::prefix('backpanel')->group(function () {
         Route::post('/{id}/update', [ProductController::class, 'update'])->name('product.update');
         Route::get('/getDataMedsos', [ProductController::class, 'getDataMedsos'])->name('product.getDataMedsos');
         Route::get('/{id}/choosemedsos', [ProductController::class, 'chooseMedsos'])->name('product.chooseMedsos');
+    });
+
+    //master
+    Route::prefix('masterweb')->group(function(){
+        Route::get('/',[MasterwebController::class, 'index'])->name('masterweb.index');
+        Route::post('/storeheader', [MasterwebController::class, 'storeheader'])->name('masterweb.storeheader');
+        Route::post('/storefooter', [MasterwebController::class, 'storefooter'])->name('masterweb.storefooter');
+        Route::post('/storecontact', [MasterwebController::class, 'storecontact'])->name('masterweb.storecontact');
     });
 });
 
