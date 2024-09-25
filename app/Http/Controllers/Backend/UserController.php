@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;
 use App\Helpers\ResponseFormatter;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Crypt;
 
@@ -118,5 +119,19 @@ class UserController extends Controller
         } catch (Exception $error) {
             return ResponseFormatter::error([], 'Something went wrong');
         }
+    }
+
+    function auth(Request $request){
+        $credentials = $request->only('email', 'password');
+        if (Auth::attempt($credentials)) {
+            $request->session()->regenerate();
+            // redirect()->intended('/backpanel/user');
+            return redirect('/backpanel/user');
+        }
+        return back();
+    }
+    function logout(){
+        Auth::logout();
+        return redirect('/backpanel');
     }
 }
