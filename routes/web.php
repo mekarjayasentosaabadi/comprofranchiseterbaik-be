@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Backend\UserController;
+use App\Http\Controllers\Backend\ProductController;
 use App\Http\Controllers\Backend\ListitemController;
 use App\Http\Controllers\Backend\MediasocialController;
 use App\Http\Controllers\Backend\HeaderbannerController;
@@ -40,6 +41,7 @@ Route::prefix('backpanel')->group(function () {
         Route::post('/{id}/changeStatus', [MediasocialController::class, 'changeStatus'])->name('mediasocial.changeStatus');
         Route::get('/{id}/show', [MediasocialController::class, 'show'])->name('mediasocial.show');
         Route::post('/{id}/update', [MediasocialController::class, 'update'])->name('mediasocial.update');
+        Route::get('/getmediasocial', [MediasocialController::class, 'getmediasocial'])->name('mediasocial.getaccountmediasocial');
     });
 
     //List Item
@@ -61,7 +63,20 @@ Route::prefix('backpanel')->group(function () {
         Route::post('/{id}/changeStatus', [HeaderbannerController::class, 'changeStatus'])->name('headerbanner.changeStatus');
         Route::get('/{id}/show', [HeaderbannerController::class, 'show'])->name('headerbanner.show');
         Route::post('/{id}/update', [HeaderbannerController::class, 'update'])->name('headerbanner.update');
-        // Route::get('/create', [HeaderbannerController::class, 'create'])->name('listitem.create');
+    });
+    //Products
+    Route::prefix('product')->group(function(){
+        Route::get('/',[ProductController::class, 'index'])->name('product.index');
+        Route::get('/getAll', [ProductController::class, 'getAll'])->name('product.getAll');
+        Route::get('/create', [ProductController::class, 'create'])->name('product.create');
+        Route::post('/', [ProductController::class, 'store'])->name('product.store');
+        Route::post('/{id}/changeStatus', [ProductController::class, 'changeStatus'])->name('product.changeStatus');
+        Route::post('/{id}/changeMenu', [ProductController::class, 'changeMenu'])->name('product.changeMenu');
+        Route::get('/{id}/edit', [ProductController::class, 'edit'])->name('product.edit');
+        Route::get('/{id}/getdetailmedsos', [ProductController::class, 'getdetailmedsos'])->name('product.getdetailmedsos');
+        Route::post('/{id}/update', [ProductController::class, 'update'])->name('product.update');
+        Route::get('/getDataMedsos', [ProductController::class, 'getDataMedsos'])->name('product.getDataMedsos');
+        Route::get('/{id}/choosemedsos', [ProductController::class, 'chooseMedsos'])->name('product.chooseMedsos');
     });
 });
 

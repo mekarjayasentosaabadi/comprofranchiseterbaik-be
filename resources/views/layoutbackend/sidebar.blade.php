@@ -70,7 +70,7 @@
                     data-feather="credit-card"></i><span class="menu-title text-truncate"
                     data-i18n="Calendar">Header Banner</span></a>
         </li>
-        <li class=" nav-item"><a class="d-flex align-items-center" href="app-kanban.html"><i
+        <li class=" nav-item {{ $menu == 'product' ? 'active' : '' }}"><a class="d-flex align-items-center" href="{{ route('product.index') }}"><i
                     data-feather="layers"></i><span class="menu-title text-truncate"
                     data-i18n="Kanban">Products / Franchises</span></a>
         </li>

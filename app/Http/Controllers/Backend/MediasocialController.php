@@ -116,4 +116,9 @@ class MediasocialController extends Controller
             return ResponseFormatter::error([], 'Gagal memperbaharui data');
         }
     }
+
+    function getmediasocial(){
+        $mediaSocial = Mediasocial::where('is_active', 1)->get();
+        return ResponseFormatter::success(['medsos'=> $mediaSocial], 'Berhasil mengambil data');
+    }
 }
