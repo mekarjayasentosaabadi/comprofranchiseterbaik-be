@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Backend\UserController;
 use App\Http\Controllers\Backend\ProductController;
+use App\Http\Controllers\Backend\ProfileController;
 use App\Http\Controllers\Backend\ListitemController;
 use App\Http\Controllers\Backend\MasterwebController;
 use App\Http\Controllers\Backend\MediasocialController;
@@ -91,6 +92,14 @@ Route::middleware('auth')->group(function () {
             Route::post('/storeheader', [MasterwebController::class, 'storeheader'])->name('masterweb.storeheader');
             Route::post('/storefooter', [MasterwebController::class, 'storefooter'])->name('masterweb.storefooter');
             Route::post('/storecontact', [MasterwebController::class, 'storecontact'])->name('masterweb.storecontact');
+        });
+        //Profile
+        Route::prefix('profile')->group(function(){
+            Route::get('/',[ProfileController::class, 'index'])->name('profile.index');
+            Route::post('/update', [ProfileController::class, 'update'])->name('profile.update');
+            Route::post('/updatepassword', [ProfileController::class, 'updatepassword'])->name('profile.updatepassword');
+            // Route::post('/storefooter', [ProfileController::class, 'storefooter'])->name('profile.storefooter');
+            // Route::post('/storecontact', [ProfileController::class, 'storecontact'])->name('profile.storecontact');
         });
     });
 });

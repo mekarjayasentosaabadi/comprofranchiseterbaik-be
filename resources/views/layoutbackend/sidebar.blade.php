@@ -81,7 +81,7 @@
             data-feather="settings"></i><span class="menu-title text-truncate"
             data-i18n="Kanban">Master Web</span></a>
         </li>
-        <li class=" nav-item"><a class="d-flex align-items-center" href="app-kanban.html"><i
+        <li class=" nav-item {{ $menu == 'profile' ? 'active' : '' }}"><a class="d-flex align-items-center" href="{{ route('profile.index') }}"><i
             data-feather="shield"></i><span class="menu-title text-truncate"
             data-i18n="Kanban">Profile Users</span></a>
         </li>
