@@ -45,6 +45,10 @@
                                     <input type="text" name="title" id="title" class="form-control">
                                 </div>
                                 <div class="form-group mt-1">
+                                    <label for="subtitle">Subtitle</label>
+                                    <textarea name="subtitle" id="subtitle" cols="30" rows="5" class="form-control"></textarea>
+                                </div>
+                                <div class="form-group mt-1">
                                     <label for="banner">Banner</label>
                                     <input type="file" name="banner" id="banner" class="form-control">
                                 </div>
@@ -101,6 +105,7 @@
         $('#form-add-edit-headerbanner').validate({
             rules: {
                 'title'     : 'required',
+                'subtitle'  : 'required'
             },
             submitHandler: function(form) {
                 if(idHeader == undefined){
@@ -158,6 +163,7 @@
 
             }).done(function(e){
                 $('#title').val(e.data[0].title)
+                $('#subtitle').val(e.data[0].subtitle)
                 $('#img-thumbnail').removeClass('hidden')
                 $('#img-thumbnail').attr('src', "{{ asset('storage/headerbanner/') }}"+'/'+e.data[0].banners)
                 idHeader = e.data[0].id

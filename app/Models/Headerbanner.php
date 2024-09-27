@@ -10,6 +10,7 @@ class Headerbanner extends Model
     use HasFactory;
     protected $fillable = [
         'title',
+        'subtitle',
         'slug',
         'banners',
         'is_active'

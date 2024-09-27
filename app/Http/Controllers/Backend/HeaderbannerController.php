@@ -50,9 +50,11 @@ class HeaderbannerController extends Controller
             $request->validate([
                 'title'         => 'required|unique:listitems,judul',
                 'banner'        => 'required',
+                'subtitle'      => 'required'
             ]);
             $dataStored = [
                 'title'         => $request->title,
+                'subtitle'      => $request->subtitle,
                 'slug'          => Str::slug($request->title,'-'),
             ];
             if($request->hasFile('banner')){
@@ -95,13 +97,15 @@ class HeaderbannerController extends Controller
     }
 
      //function update
-     function update(Request $request, $id){
+    function update(Request $request, $id){
         try {
             $request->validate([
                 'title'         => 'required|unique:headerbanners,title,'.$id.',id',
+                'subtitle'      => 'required'
             ]);
             $dataStored = [
                 'title'         => $request->title,
+                'subtitle'      => $request->subtitle,
                 'slug'          => Str::slug($request->title,'-'),
             ];
             if($request->hasFile('banner')){
