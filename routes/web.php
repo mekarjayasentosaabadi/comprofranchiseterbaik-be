@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Backend\UserController;
+use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Backend\ProductController;
 use App\Http\Controllers\Backend\ProfileController;
 use App\Http\Controllers\Backend\ListitemController;
@@ -20,12 +21,8 @@ use App\Http\Controllers\Backend\HeaderbannerController;
 |
 */
 
-Route::get('/', function () {
-    return view('pagesfrontend.index');
-});
-Route::get('/detail', function () {
-    return view('pagesfrontend.detail');
-});
+Route::get('/', [HomeController::class, 'index']);
+Route::get('/show-franchise/{slug}', [HomeController::class, 'show']);
 
 
 

@@ -7,13 +7,11 @@
             <ul
               class="js-clone-nav d-none d-lg-inline-block text-start site-menu float-end"
             >
-              <li><a href="">TOPCOAT</a></li>
-              <li><a href="">KABUKI AUTO SHOP</a></li>
-              <li><a href="">XTO CARE</a></li>
-              <li><a href="">HYDROPHOBIC LAB</a></li>
-              <li><a href="">PIJAT KELUARGA NINGRAT</a></li>
-              <li><a href="">BODY REPAIR PAINT</a></li>
-              <li><a href="">CAR WASH</a></li>
+            @foreach ($franchises as $franchise)
+                @if ($franchise->is_menu == 1)
+                  <li><a href="/show-franchise/{{ $franchise->slug }}">{{ $franchise->judul }}</a></li>
+                @endif
+            @endforeach
             </ul>
 
             <a

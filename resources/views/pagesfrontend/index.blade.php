@@ -5,16 +5,16 @@
   <section>
     <div class="hero">
       <div class="hero-slide">
-          <div class="img overlay" style="background-image: url('{{ asset('assetfrontend/images/home/hero.jpg') }}')"></div>
-          <!-- <div class="img overlay" style="background-image: url('images/hero_bg_2.jpg')"></div>
-          <div class="img overlay" style="background-image: url('images/hero_bg_1.jpg')"></div> -->
+          <div class="img overlay" style="background-image: url('{{ asset('storage/headerbanner/'.$headerbanner->banners) }}')"></div>
         </div>
 
         <div class="container">
           <div class="row justify-content-center align-items-center">
-            <div class="col-lg-9 text-center">
-              <h1 class="heading" data-aos="fade-up">BERGABUNG BERSAMA</h1>
-              <h1 class="heading fw-bolder" style="font-size: 4rem;" data-aos="fade-up">FRANCHISE TERBAIK</h1>            
+            <div class="text-center">
+              <h1 class="heading fw-bolder" style="font-size: 4rem;" data-aos="fade-up">{{ $headerbanner->title }}</h1>            
+              <div class="d-flex justify-content-center">
+                <p class="text-white col-md-8 fw-normal fs-5 col-lg-7" data-aos="fade-up">Solusi kemitraan dengan investasi terjangkau, mudah dijalankan, berprofit tinggi, dan minim resiko</p>
+              </div>
             </div>
           </div>
         </div>
@@ -31,26 +31,20 @@
             <h5 class="font-weight-bold text-primary mb-4 mb-md-0">
                 KENAPA HARUS BERGABUNG DENGAN KAMI
             </h5>
-            <h1 class="fw-bold">Prospek Bisnis Paling Menguntungkan Di Tahun Ini</h1>
+            <h1 class="fw-bold">{{ $master->titleheader }}</h1>
           </div>
         </div>
         <div class="row justify-content-between mb-5" data-aos="fade-up">
           <div class="col-lg-7 mb-5 mb-lg-0 order-lg-2">
             <div class="img-about dots">
-              <img src="{{ asset('assetfrontend/images/home/about.jpg') }}" alt="Image" class="img-fluid" />
+              <img src="{{ asset('storage/masterweb/'.$master->thumbnailheader) }}" alt="Image" class="img-fluid" />
             </div>
           </div>
           <div class="col-lg-4 ">
             <p class="fs-4 text-justify">
-                Perusahaan kami (MAKKO Group) telah
-                sangat lama berpengalaman di industri
-                otomotif, kuliner, pijat & refleksi. Dan
-                telah meraih berbagai penghargaan
-                serta semakin di akui keberadaannya
-                sebagai produk dan jasa yang
-                berkualitas baik bagi masyarakat.
+               {{ $master->descriptionheader }}
             </p>
-            <div><a href="#" class="btn btn-primary"><i class="bi bi-whatsapp"></i> Hubungi Kami</a></div>
+            <div><a href="https://wa.me/{{ $master->whatsapp_number }}" class="btn btn-primary"><i class="bi bi-whatsapp"></i> Hubungi Kami</a></div>
           </div>
         </div>
       </div>
@@ -62,117 +56,21 @@
   <section class="features-1">
     <div class="container">
       <div class="row">
+        @foreach ($listitems as $listitem)
         <div class="col-12 col-md-4" data-aos="fade-up" data-aos-delay="300">
           <div class="box-feature">
-             <img src="{{ asset('assetfrontend/images/home/icon/pie-chart.png') }}" alt="...">
-            <h3 class="mb-3 text-primary">TARGET MARKET <br> LUAS</h3>
-            <p>
-              Jangkau pasar yang luas
-              dengan berbagai peluang di
-              berbagai industri, memastikan
-              potensi konsumen yang lebih
-              besar.
-            </p>
+            <div>
+              <img  class="img-fluid" src="{{ asset('storage/listitem/'.$listitem->icons) }}" alt="...">
+            </div>
+            <div class="d-flex justify-content-center">
+              <h3 class="my-3 col-md-5  text-primary">{{ $listitem->judul }}</h3>
+            </div>
+            <div>
+              {!! $listitem->description !!}
+            </div>
           </div>
         </div>
-        <div class="col-12 col-md-4" data-aos="fade-up" data-aos-delay="400">
-          <div class="box-feature">
-            <img src="{{ asset('assetfrontend/images/home/icon/financial-profit.png') }}" alt="...">
-            <h3 class="mb-3">PROSPEK SANGAT <br> MENJANJIKAN</h3>
-            <p>
-              Raih keuntungan signifikan
-              dengan model bisnis yang
-              telah terbukti sukses dan
-              mudah berkembang.
-            </p>
-          </div>
-        </div>
-        <div class="col-12 col-md-4" data-aos="fade-up" data-aos-delay="500">
-          <div class="box-feature">
-            <img src="{{ asset('assetfrontend/images/home/icon/arrows.png') }}" alt="...">
-            <h3 class="mb-3">PROFIT MARGIN <br> TINGGI</h3>
-            <p>
-              Dapatkan keuntungan
-              maksimal dengan biaya
-              operasional yang efisien dan
-              margin laba yang optimal.
-            </p>
-          </div>
-        </div>
-        <div class="col-12 col-md-4" data-aos="fade-up" data-aos-delay="300">
-          <div class="box-feature">
-            <img src="{{ asset('assetfrontend/images/home/icon/businessman.png') }}" alt="...">
-            <h3 class="mb-3">TENAGA KERJA <br> PROFESIONAL</h3>
-            <p>
-              Seluruh SDM yang diberikan
-              untuk mitra adalah tenaga
-              kerja yang ahli dan sangat
-              berpengalaman di bidangnya
-            </p>
-          </div>
-        </div>
-        <div class="col-12 col-md-4" data-aos="fade-up" data-aos-delay="400">
-          <div class="box-feature">
-            <img src="{{ asset('assetfrontend/images/home/icon/team.png') }}" alt="...">
-            <h3 class="mb-3">PROSPEK SANGAT <br> MENJANJIKAN</h3>
-            <p>
-              Seluruh rangkaian kegiatan
-              pemasaran atau marketing
-              akan dipandu oleh manajemen
-              perusahaan kami
-            </p>
-          </div>
-        </div>
-        <div class="col-12 col-md-4" data-aos="fade-up" data-aos-delay="500">
-          <div class="box-feature">
-            <img src="{{ asset('assetfrontend/images/home/icon/tools.png') }}" alt="...">
-            <h3 class="mb-3">PERALATAN <br> TERBAIK</h3>
-            <p>
-              Seluruh peralatan kerja yang
-              kami siapkan untuk mitra
-              adalah peralatan terbaru yang
-              mendukung dalam bekerja
-            </p>
-          </div>
-        </div>
-        <div class="col-12 col-md-4" data-aos="fade-up" data-aos-delay="300">
-          <div class="box-feature">
-            <img src="{{ asset('assetfrontend/images/home/icon/money.png') }}" alt="...">
-            <h3 class="mb-3">HARGA <br> TERJANGKAU</h3>
-            <p>
-              Didukung oleh supplier pabrik,
-              sehingga konsumen akan
-              dapat barang dengan harga
-              terjangkau serta garansi resmi
-            </p>
-          </div>
-        </div>
-        <div class="col-12 col-md-4" data-aos="fade-up" data-aos-delay="400">
-          <div class="box-feature">
-            <img src="{{ asset('assetfrontend/images/home/icon/interview.png') }}" alt="...">
-            <h3 class="mb-3">KONSULTAN <br> PROFESIONAL</h3>
-            <p>
-              Anda akan mendapatkan
-              konsultasi secara langsung
-              dari yang telah berpengalaman
-              di bidang nya
-            </p>
-          </div>
-        </div>
-        <div class="col-12 col-md-4" data-aos="fade-up" data-aos-delay="500">
-          <div class="box-feature">
-            <img src="{{ asset('assetfrontend/images/home/icon/quality-control.png') }}" alt="...">
-            <h3 class="mb-3">KUALITAS <br> PRODUK</h3>
-            <p>
-              Kualitas pekerjaan terbaik
-              adalah budaya perusahaan
-              yang selalu terjaga dan
-              berkembang untuk
-              memastikan kualitas produk
-              dan layanan
-            </p>
-          </div>
-        </div>
+        @endforeach
       </div>
     </div>
   </section>
@@ -269,43 +167,41 @@
           </div>
         </div>
         <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 justify-content-center">
-          <div class="col" data-aos="fade-up" data-aos-delay="300">
-            <div class="property-item mb-30 shadow-sm d-flex flex-column h-100">
-              <a href="detail.html" class="img">
-                <img src="{{ asset('assetfrontend/images/home/product/Asset-TopCoat-1126x1536.jpg') }}" alt="Image" class="img-fluid w-100  crop-img" />
-              </a>
-              <div class="property-content mt-auto flex-grow-1 d-flex flex-column">
-                <div class="price mb-2"><span>Rp 1.090.000</span></div>
-                <div class="flex-grow-1">
-                  <span class="city d-block">TOPCOAT</span>
-                  <span class="d-block py-3 fw-bold">SALON MOBIL & ANTIKARAT</span>
-                </div>
-                <div class="mt-auto">
-                  <a href="#" class="btn btn-outline-primary py-2 px-3">Lihat Detail</a>
-                  <a href="#" class="btn btn-primary py-2 px-3">Hubungi Kami</a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col" data-aos="fade-up" data-aos-delay="400">
-            <div class="property-item mb-30 shadow-sm d-flex flex-column h-100">
-              <a href="#" class="img">
-                <img src="{{ asset('assetfrontend/images/home/product/Asset-Kabuki-1-1125x1536.jpg') }}" alt="Image" class="img-fluid w-100  crop-img" />
-              </a>
-              <div class="property-content mt-auto flex-grow-1 d-flex flex-column">
-                <div class="price mb-2"><span>Rp 1.190.000</span></div>
-                <div class="flex-grow-1">
-                  <span class="city d-block">KABUKI AUTO SHOP</span>
-                  <span class="d-block py-3 fw-bold">TOKO OTOMOTIF</span>
-                </div>
-                <div class="mt-auto">
-                  <a href="#" class="btn btn-outline-primary py-2 px-3">Lihat Detail</a>
-                  <a href="#" class="btn btn-primary py-2 px-3">Hubungi Kami</a>
+
+          @foreach ($franchises as $franchise)
+            <div class="col" data-aos="fade-up" data-aos-delay="500">
+              <div class="property-item mb-30 shadow-sm d-flex flex-column h-100">
+                <a href="/show-franchise/{{ $franchise->slug }}" class="img">
+                  <img src="{{ asset('storage/products/'.$franchise->thumbnail) }}" alt="Image" class="img-fluid w-100 crop-img" />
+                </a>
+                <div class="property-content mt-auto flex-grow-1 d-flex flex-column">
+                  <div>
+                    <span class="text-muted fw-bold" style="font-size: 14px; text-decoration: line-through;">
+                      @if ($franchise->discount != 0)
+                        {{ formatRupiah($franchise->discount) }}
+                      @endif
+                    </span>
+                  </div>
+                  <div class="price mb-2">
+                    <span style="font-size: 24px;">
+                      {{ formatRupiah($franchise->prices) }}
+                    </span>
+                  </div>
+                  <div class="flex-grow-1">
+                    <span class="city d-block">{{ $franchise->judul }}</span>
+                    <span class="d-block py-3 fw-bold">{{ $franchise->title }}</span>
+                  </div>
+                  <div class="mt-auto d-flex flex-wrap gap-1">
+                    <a href="/show-franchise/{{ $franchise->slug }}" class="btn btn-outline-primary py-2 px-3">Lihat Detail</a>
+                    <a href="https://wa.me/{{ $franchise->contact }}" class="btn btn-primary py-2 px-3">Hubungi Kami</a>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div class="col" data-aos="fade-up" data-aos-delay="500">
+          @endforeach
+
+          
+          {{-- <div class="col" data-aos="fade-up" data-aos-delay="500">
             <div class="property-item mb-30 shadow-sm d-flex flex-column h-100">
               <a href="#" class="img">
                 <img src="{{ asset('assetfrontend/images/home/product/Asset-XTO-1128x1536.jpg') }}" alt="Image" class="img-fluid w-100 crop-img" />
@@ -331,7 +227,7 @@
                 </div>
               </div>
             </div>
-          </div>
+          </div> --}}
         </div>
         
         

@@ -9690,7 +9690,7 @@ textarea {
   .hero .heading {
     color: #fff;
     font-size: clamp(1.5rem, 2.5vw, 2.5rem);
-    margin-bottom: 30px;
+    /* margin-bottom: 30px; */
     font-weight: 600; }
   .hero .lead {
     color: #fff;

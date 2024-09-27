@@ -23,11 +23,11 @@
             <div>
               <h2 class="text-white">franchiseterbaik.com</h2>
               <ul class="list-unstyled fs-5 text-white" style="line-height: 40px;">
-                <li><i class="bi bi-geo-alt"></i> JI. Raya Telesonic No. 10, Tangerang - Banten</li>
-                <li><i class="bi bi-telephone"></i> 021 5316 2144</li>
-                <li><i class="bi bi-whatsapp"></i> 0823 1117 0673</li>
+                <li><i class="bi bi-geo-alt"></i> {{ $master->address }}</li>
+                <li><i class="bi bi-telephone"></i> {{ $master->phone_number }}</li>
+                <li><i class="bi bi-whatsapp"></i> {{ $master->whatsapp_number }}</li>
               </ul>
-              <a href="#" class="btn btn-primary"><i class="bi bi-whatsapp"></i> Hubungi Kami</a>
+              <a href="https://wa.me/{{ $master->whatsapp_number }}" target="blank" class="btn btn-primary"><i class="bi bi-whatsapp"></i> Hubungi Kami</a>
             </div>
           </div>
         </div>
@@ -45,7 +45,7 @@
     <script type="text/javascript">
       $(function () {
         $('#whatsapp-popup').floatingWhatsApp({
-          phone: '+6285793623014',
+          phone: '{{ $master->whatsapp_number }}',
           popupMessage: 'Hallo 👋, Apakah ada yang bisa kami bantu?',
           showPopup: true,
           position: 'right'
