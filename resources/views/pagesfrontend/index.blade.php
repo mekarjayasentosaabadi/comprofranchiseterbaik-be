@@ -13,7 +13,7 @@
             <div class="text-center">
               <h1 class="heading fw-bolder" style="font-size: 4rem;" data-aos="fade-up">{{ $headerbanner->title }}</h1>            
               <div class="d-flex justify-content-center">
-                <p class="text-white col-md-8 fw-normal fs-5 col-lg-7" data-aos="fade-up">Solusi kemitraan dengan investasi terjangkau, mudah dijalankan, berprofit tinggi, dan minim resiko</p>
+                <p class="text-white col-md-8 fw-normal fs-5 col-lg-7" data-aos="fade-up">{{ $headerbanner->subtitle}}</p>
               </div>
             </div>
           </div>
