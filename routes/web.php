@@ -21,8 +21,15 @@ use App\Http\Controllers\Backend\HeaderbannerController;
 */
 
 Route::get('/', function () {
-    return view('pagesbackend.user.index');
+    return view('pagesfrontend.index');
 });
+Route::get('/detail', function () {
+    return view('pagesfrontend.detail');
+});
+
+
+
+
 Route::get('/backpanel', function () {
     return view('pagesbackend.loginpage');
 })->name('login');
