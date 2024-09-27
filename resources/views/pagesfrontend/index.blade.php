@@ -184,7 +184,9 @@
                   </div>
                   <div class="price mb-2">
                     <span style="font-size: 24px;">
-                      {{ formatRupiah($franchise->prices) }}
+                      @if ($franchise->prices != 0)
+                        {{ formatRupiah($franchise->prices) }}
+                      @endif
                     </span>
                   </div>
                   <div class="flex-grow-1">
