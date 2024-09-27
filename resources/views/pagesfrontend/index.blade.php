@@ -178,14 +178,26 @@
                   <div>
                     <span class="text-muted fw-bold" style="font-size: 14px; text-decoration: line-through;">
                       @if ($franchise->discount != 0)
-                        {{ formatRupiah($franchise->discount) }}
+                        {{ formatRupiah($franchise->prices) }}
                       @endif
                     </span>
                   </div>
                   <div class="price mb-2">
                     <span style="font-size: 24px;">
+                      @php
+                        if ($franchise->discount != 0) {
+                          $discount = $franchise->discount;
+                          $price    = $franchise->prices;
+                          $priceDiscount   = $price - ($price * $discount / 100);
+                          if ($priceDiscount < 0) {
+                            $priceDiscount = 0;
+                          }
+                        }else {
+                          $price = $franchise->prices;
+                        }
+                      @endphp
                       @if ($franchise->prices != 0)
-                        {{ formatRupiah($franchise->prices) }}
+                        {{ formatRupiah($priceDiscount ?? $price) }}
                       @endif
                     </span>
                   </div>
