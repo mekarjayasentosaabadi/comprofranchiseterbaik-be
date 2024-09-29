@@ -1,9 +1,8 @@
 <div id="whatsapp-popup" style="z-index: 99;"></div>
-
-<div class="site-footer bg-dark">
+<div class="site-footer bg-dark py-4">
   <div class="container">
-    <div class="row">
-      <div class="col-lg-9">
+    <div class="row mb-4">
+      <div class="col-lg-9 col-md-12">
         <div class="widget">
           <h4 class="text-white">franchiseterbaik.com</h4>
           <h4 class="text-white fw-semibold" style="font-size: 50px;">Ayo Raih Mimpi Anda Bersama Kami !!</h4>
@@ -11,15 +10,17 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-lg-9 col-md-12 g-footer">
-        <p class="text-white fs-4 text-justify">
-          Pilihan investasi usaha yang aman dan sangat diminati di masa modern sekarang ini, sejalan dengan pertumbuhan pasar konsumen terhadap produk atau jasa yang ditawarkan dari usaha kemitraan kami.
-        </p>
-        <p class="text-white fs-4 text-justify">
-          Sangat bangga dapat menjadi pilihan utama dalam membantu merangkai kesuksesan anda. Maka jangan ragu dalam mempercayakan masa depan anda kepada kami karena kami selalu menjaga kepercayaan yang anda berikan.
-        </p>
+      <div class="col-lg-8 col-md-6">
+        <div class="col-lg-9">
+          <p class="text-white fs-5 text-justify mb-3">
+            Pilihan investasi usaha yang aman dan sangat diminati di masa modern sekarang ini, sejalan dengan pertumbuhan pasar konsumen terhadap produk atau jasa yang ditawarkan dari usaha kemitraan kami.
+          </p>
+          <p class="text-white fs-5 text-justify mb-3">
+            Sangat bangga dapat menjadi pilihan utama dalam membantu merangkai kesuksesan anda. Maka jangan ragu dalam mempercayakan masa depan anda kepada kami karena kami selalu menjaga kepercayaan yang anda berikan.
+          </p>
+        </div>
       </div>
-      <div class="col-lg-3 col-md-12" >
+      <div class="col-lg-4 col-md-4 text-md-start">
         <div>
           <h2 class="text-white">franchiseterbaik.com</h2>
           <ul class="list-unstyled fs-5 text-white" style="line-height: 40px;">
