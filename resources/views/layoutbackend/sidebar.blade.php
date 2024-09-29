@@ -38,7 +38,7 @@
                             </g>
                         </g>
                     </svg></span>
-                <h2 class="brand-text">Vuexy</h2>
+                <h2 class="brand-text">Franchise</h2>
             </a></li>
         <li class="nav-item nav-toggle"><a class="nav-link modern-nav-toggle pe-0" data-bs-toggle="collapse"><i
                     class="d-block d-xl-none text-primary toggle-icon font-medium-4" data-feather="x"></i><i
@@ -49,7 +49,7 @@
 <div class="shadow-bottom"></div>
 <div class="main-menu-content">
     <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
-        <li class=" nav-item"><a class="d-flex align-items-center" href="app-email.html"><i
+        <li class=" nav-item {{ $menu == 'dashboard' ? 'active' : '' }}"><a class="d-flex align-items-center" href="{{ route('dashboard.index') }}"><i
                     data-feather="home"></i><span class="menu-title text-truncate" data-i18n="Dashboards">Dashboard</span></a>
         </li>
         <li class=" navigation-header"><span data-i18n="Apps &amp; Pages">Master &amp; Data</span><i

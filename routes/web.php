@@ -6,6 +6,7 @@ use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Backend\ProductController;
 use App\Http\Controllers\Backend\ProfileController;
 use App\Http\Controllers\Backend\ListitemController;
+use App\Http\Controllers\Backend\DashboardController;
 use App\Http\Controllers\Backend\MasterwebController;
 use App\Http\Controllers\Backend\MediasocialController;
 use App\Http\Controllers\Backend\HeaderbannerController;
@@ -104,6 +105,10 @@ Route::middleware('auth')->group(function () {
             Route::post('/updatepassword', [ProfileController::class, 'updatepassword'])->name('profile.updatepassword');
             // Route::post('/storefooter', [ProfileController::class, 'storefooter'])->name('profile.storefooter');
             // Route::post('/storecontact', [ProfileController::class, 'storecontact'])->name('profile.storecontact');
+        });
+        //Dashboard
+        Route::prefix('dashboard')->group(function(){
+            Route::get('/',[DashboardController::class, 'index'])->name('dashboard.index');
         });
     });
 });
