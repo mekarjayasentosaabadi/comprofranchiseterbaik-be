@@ -154,6 +154,7 @@
                             }
                         },
                         error: function(e){
+                            console.log(e)
                             if(e.status == 422){
                                 notifSweetAlertErrors(e.responseJSON.message);
                             }

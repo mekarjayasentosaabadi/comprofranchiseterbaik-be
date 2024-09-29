@@ -68,11 +68,13 @@
                     'description' : 'required'
                 },
                 submitHandler: function(e){
+                    var formData = new FormData($('#formaddlistitem')[0]);
+                    formData.append('description', CKEDITOR.instances.description.getData());
                     $.ajax({
                         url: "{{ route('listitem.store') }}",
                         type: "POST",
                         dataType: "JSON",
-                        data: new FormData($('#formaddlistitem')[0]),
+                        data: formData,
                         processData: false,
                         contentType: false,
                         success: function(e){
