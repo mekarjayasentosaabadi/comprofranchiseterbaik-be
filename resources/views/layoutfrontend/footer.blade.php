@@ -2,10 +2,10 @@
 <div class="site-footer bg-dark ">
   <div class="container">
     <div class="row">
-      <div class="col-lg-9 col-md-12">
+      <div class="col-lg-10 col-md-12">
         <div>
           <h4 class="text-white">franchiseterbaik.com</h4>
-          <h4 class="text-white fw-semibold" style="font-size: 50px;">Ayo Raih Mimpi Anda Bersama Kami !!</h4>
+          <h4 class="text-white fw-semibold" style="font-size: 45px;">Ayo Raih Mimpi Anda Bersama Kami !!</h4>
         </div>
       </div>
     </div>

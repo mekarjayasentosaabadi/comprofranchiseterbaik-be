@@ -89,7 +89,7 @@
             <h1 class="text-white fw-bold">ANDA MASIH GALAU INGIN BERGABUNG DENGAN KAMI?</h1>
           </div>
         </div>
-        <div class="row justify-content-between mb-5 text-white">
+        <div class="row justify-content-between text-white">
           <div>
             <div class="fs-5 d-flex gap-2" data-aos="fade-up" data-aos-delay="300">
               <i class="bi bi-check-circle-fill"></i>
@@ -147,7 +147,6 @@
               <i class="bi bi-check-circle-fill"></i>
               <p>Produk dan jasa dijual dengan harga lebih terjangkau sehingga mempunyai target market konsumen yang sangat luas</p>
             </div>
-            
           </div>
         </div>
       </div>
