@@ -40,8 +40,8 @@
               <img src="{{ asset('storage/masterweb/'.$master->thumbnailheader) }}" alt="Image" class="img-fluid" />
             </div>
           </div>
-          <div class="col-lg-4 ">
-            <p class="fs-4">
+          <div class="col-lg-5">
+            <p class="fs-4 mb-5 me-lg-5">
                {{ $master->descriptionheader }}
             </p>
             <div><a href="https://wa.me/{{ $master->whatsapp_number }}" class="btn btn-primary"><i class="bi bi-whatsapp"></i> Hubungi Kami</a></div>
@@ -57,13 +57,13 @@
     <div class="container">
       <div class="row">
         @foreach ($listitems as $listitem)
-        <div class="col-12 col-md-4" data-aos="fade-up" data-aos-delay="300">
+        <div class="col-12 col-md-4 mb-4 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="300">
           <div class="box-feature">
             <div>
-              <img  class="img-fluid" src="{{ asset('storage/listitem/'.$listitem->icons) }}" alt="...">
+              <img width="100" class="img-fluid" src="{{ asset('storage/listitem/'.$listitem->icons) }}" alt="...">
             </div>
             <div class="d-flex justify-content-center">
-              <h3 class="my-3 col-md-5  text-primary">{{ $listitem->judul }}</h3>
+              <h3 class="my-3 col-md-5 text-primary">{{ $listitem->judul }}</h3>
             </div>
             <div>
               {!! $listitem->description !!}
@@ -74,6 +74,7 @@
       </div>
     </div>
   </section>
+  
   {{-- itmes --}}
 
   {{-- profit --}}

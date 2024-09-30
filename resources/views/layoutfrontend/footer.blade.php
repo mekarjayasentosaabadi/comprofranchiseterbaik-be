@@ -1,9 +1,9 @@
 <div id="whatsapp-popup" style="z-index: 99;"></div>
-<div class="site-footer bg-dark py-4">
+<div class="site-footer bg-dark ">
   <div class="container">
     <div class="row">
       <div class="col-lg-9 col-md-12">
-        <div class="widget">
+        <div>
           <h4 class="text-white">franchiseterbaik.com</h4>
           <h4 class="text-white fw-semibold" style="font-size: 50px;">Ayo Raih Mimpi Anda Bersama Kami !!</h4>
         </div>
