@@ -128,7 +128,7 @@ class UserController extends Controller
             // redirect()->intended('/backpanel/user');
             return redirect('/backpanel/user');
         }
-        return back();
+        return redirect('/backpanel')->with('error', "Authentikasi Gagal, Mohon periksa kembali email atau password anda.!");
     }
     function logout(){
         Auth::logout();

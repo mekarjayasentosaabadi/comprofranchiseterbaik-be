@@ -87,6 +87,11 @@
                                 <h4 class="card-title mb-1">Welcome to Franchise Terbaik! 👋</h4>
                                 <p class="card-text mb-2">Please sign-in to your account and start the adventure</p>
 
+                                @if (session('error'))
+                                <div class="p-1 mb-2 bg-warning bg-gradient text-dark rounded">
+                                    {{ session('error') }}
+                                </div>
+                                @endif
                                 <form class="auth-login-form mt-2" action="{{ route('login.post') }}" method="POST">
                                     @csrf
                                     <div class="mb-1">
