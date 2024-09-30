@@ -17,7 +17,7 @@
             <div class="col-lg-6">
             <div class="fs-4 text-justify">
                 <h1 class="fw-bold text-primary">{{ $franchise->judul }}</h1>
-                <h5 class="fw-normal text-black">{{ $franchise->title }}</h5>
+                <h5 class="fw-normal text-black mb-4">{{ $franchise->title }}</h5>
                 <div class="fs-5 text-black">
                     {!! $franchise->description !!}
                 </div>

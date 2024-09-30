@@ -41,7 +41,7 @@
             </div>
           </div>
           <div class="col-lg-4 ">
-            <p class="fs-4 text-justify">
+            <p class="fs-4">
                {{ $master->descriptionheader }}
             </p>
             <div><a href="https://wa.me/{{ $master->whatsapp_number }}" class="btn btn-primary"><i class="bi bi-whatsapp"></i> Hubungi Kami</a></div>
@@ -184,20 +184,20 @@
                   </div>
                   <div class="price mb-2">
                     <span style="font-size: 24px;">
-                      @php
-                        if ($franchise->discount != 0) {
-                          $discount = $franchise->discount;
-                          $price    = $franchise->prices;
-                          $priceDiscount   = $price - ($price * $discount / 100);
-                          if ($priceDiscount < 0) {
-                            $priceDiscount = 0;
-                          }
-                        }else {
-                          $price = $franchise->prices;
-                        }
-                      @endphp
+                      {{-- @php
+                        // if ($franchise->discount != 0) {
+                        //   $discount = $franchise->discount;
+                        //   $price    = $franchise->prices;
+                        //   $priceDiscount   = $price - ($price * $discount / 100);
+                        //   if ($priceDiscount < 0) {
+                        //     $priceDiscount = 0;
+                        //   }
+                        // }else {
+                        //   $price = $franchise->prices;
+                        // }
+                      @endphp --}}
                       @if ($franchise->prices != 0)
-                        {{ formatRupiah($priceDiscount ?? $price) }}
+                        {{ formatRupiah( $franchise->discount != 0 ? $franchise->discount : $franchise->prices ) }}
                       @endif
                     </span>
                   </div>
@@ -206,15 +206,13 @@
                     <span class="d-block py-3 fw-bold">{{ $franchise->title }}</span>
                   </div>
                   <div class="mt-auto d-flex flex-wrap gap-1">
-                    <a href="/show-franchise/{{ $franchise->slug }}" class="btn btn-outline-primary py-2 px-3">Lihat Detail</a>
-                    <a href="https://wa.me/{{ $franchise->contact }}" class="btn btn-primary py-2 px-3">Hubungi Kami</a>
+                    <a href="/show-franchise/{{ $franchise->slug }}" class="btn btn-outline-primary py-2 px-3 d-flex align-items-center justify-content-center">Lihat Detail</a>
+                    <a href="https://wa.me/{{ $franchise->contact }}" class="btn btn-primary py-2 px-3 d-flex align-items-center justify-content-center">Hubungi Kami</a>
                   </div>
                 </div>
               </div>
             </div>
           @endforeach
-
-          
           {{-- <div class="col" data-aos="fade-up" data-aos-delay="500">
             <div class="property-item mb-30 shadow-sm d-flex flex-column h-100">
               <a href="#" class="img">
