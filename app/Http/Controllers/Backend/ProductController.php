@@ -11,6 +11,7 @@ use Yajra\DataTables\DataTables;
 use App\Helpers\ResponseFormatter;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Crypt;
+use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
 {
@@ -25,6 +26,7 @@ class ProductController extends Controller
             ->addColumn('action', function($x){
                 $btn = '<div>';
                 $btn .='<a href="'.route('product.edit',Crypt::encrypt($x->id)).'" class="btn btn-warning btn-sm" title="Edit Produtcs"><li class="fa fa-edit"></li></a> ';
+                $btn .='<button class="btn btn-danger btn-sm"><li class="fa fa-trash" onclick="deleteProduct(this,'.$x->id.')"></li></button>';
                 $btn .= '</div>';
                 return $btn;
             })
@@ -247,5 +249,17 @@ class ProductController extends Controller
     function chooseMedsos($id){
         $data = Mediasocial::find($id);
         return ResponseFormatter::success([$data], 'Berhasil mengambil data');
+    }
+
+    //delete products
+    function delete($id){
+        try {
+            $find = Franchise::where('id', $id)->first();
+            $find->delete();
+            Storage::delete('products/'.$find->thumbnail);
+            return ResponseFormatter::success([], 'Berhasil Menghapus Products');
+        } catch (Exception $error) {
+            return ResponseFormatter::error([], 'Something went wrong');
+        }
     }
 }

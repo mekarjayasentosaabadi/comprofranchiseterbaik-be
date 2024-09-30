@@ -89,6 +89,7 @@ Route::middleware('auth')->group(function () {
             Route::post('/{id}/update', [ProductController::class, 'update'])->name('product.update');
             Route::get('/getDataMedsos', [ProductController::class, 'getDataMedsos'])->name('product.getDataMedsos');
             Route::get('/{id}/choosemedsos', [ProductController::class, 'chooseMedsos'])->name('product.chooseMedsos');
+            Route::post('/{id}', [ProductController::class, 'delete'])->name('product.delete');
         });
 
         //master

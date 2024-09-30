@@ -16,7 +16,9 @@
             <div class="card">
                 <div class="card-header">
                     <h4 class="card-title">Data Table Products</h4>
-                    <a href="{{ route('product.create') }}" class="btn btn-primary btn-md"><li class="fa fa-plus"></li> Tambah Products</a>
+                    <a href="{{ route('product.create') }}" class="btn btn-primary btn-md">
+                        <li class="fa fa-plus"></li> Tambah Products
+                    </a>
                 </div>
                 <div class="card-body">
                     <div class="row">
@@ -90,49 +92,82 @@
             })
         })
         //changeStatus
-        function changeStatus(txt, i){
+        function changeStatus(txt, i) {
             var baseUrl = window.location.origin;
             $.ajax({
-                url: baseUrl+'/'+listRoutes['product.changeStatus'].replace('{id}',i),
+                url: baseUrl + '/' + listRoutes['product.changeStatus'].replace('{id}', i),
                 type: "POST",
                 dataType: "JSON",
                 processData: false,
                 contentType: false,
-                success: function(e){
-                    if(e.data.statusCode == 200){
+                success: function(e) {
+                    if (e.data.statusCode == 200) {
                         notifSweetAlertSuccess(e.meta.message);
-                    } else (
+                    } else(
                         notifSweetAlertSuccess(e.meta.message)
                     )
                     table.ajax.reload();
                 },
-                error: function(e){
+                error: function(e) {
                     console.log(e)
                     alert('Gagal mengeksekusi data.!')
                 }
             })
         }
         //changeMenu
-        function changeMenu(txt, i){
+        function changeMenu(txt, i) {
             var baseUrl = window.location.origin;
             $.ajax({
-                url: baseUrl+'/'+listRoutes['product.changeMenu'].replace('{id}',i),
+                url: baseUrl + '/' + listRoutes['product.changeMenu'].replace('{id}', i),
                 type: "POST",
                 dataType: "JSON",
                 processData: false,
                 contentType: false,
-                success: function(e){
-                    if(e.data.statusCode == 200){
+                success: function(e) {
+                    if (e.data.statusCode == 200) {
                         notifSweetAlertSuccess(e.meta.message);
-                    } else (
+                    } else(
                         notifSweetAlertSuccess(e.meta.message)
                     )
                     table.ajax.reload();
                 },
-                error: function(e){
+                error: function(e) {
                     console.log(e)
                     alert('Gagal mengeksekusi data.!')
                 }
+            })
+        }
+        //delete products
+        function deleteProduct(txt, i) {
+            Swal.fire({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, delete it!'
+            }).then((result) => {
+                $.ajax({
+                    url: window.location.origin + '/' + listRoutes['product.delete'].replace('{id}', i),
+                    type: "POST",
+                    dataType: "JSON",
+                    processData: false,
+                    contentType: false,
+                    success: function(e) {
+                        if(e.meta.code == 200){
+                            notifSweetAlertSuccess(e.meta.message)
+                            setTimeout(function(){
+                                table.ajax.reload();
+                            }, 1500)
+                        }
+                    },
+                    error: function(e){
+                        if(e.status == 422){
+                            notifSweetAlertErrors(e.responseJSON.message);
+                        }
+                    }
+                })
             })
         }
     </script>
