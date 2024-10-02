@@ -26,8 +26,8 @@
   <section>
     <div class="section section-4 bg-light">
       <div class="container">
-        <div class="row mb-5 align-items-center" data-aos="fade-right">
-          <div class="col-md-8">
+        <div class="row mb-2 align-items-center" data-aos="fade-right">
+          <div class="col-lg-8">
             <h5 class="font-weight-bold text-primary mb-4 mb-md-0">
                 KENAPA HARUS BERGABUNG DENGAN KAMI
             </h5>
@@ -41,7 +41,7 @@
             </div>
           </div>
           <div class="col-lg-5">
-            <p class="fs-4 mb-5 me-lg-5">
+            <p class="fs-5 mb-5 me-lg-5 text-justify">
                {{ $master->descriptionheader }}
             </p>
             <div><a href="https://wa.me/{{ $master->whatsapp_number }}" class="btn btn-primary"><i class="bi bi-whatsapp"></i> Hubungi Kami</a></div>
@@ -65,7 +65,7 @@
             <div class="d-flex justify-content-center">
               <h3 class="my-3 col-md-5 text-primary">{{ $listitem->judul }}</h3>
             </div>
-            <div>
+            <div class="text-black">
               {!! $listitem->description !!}
             </div>
           </div>
@@ -74,7 +74,6 @@
       </div>
     </div>
   </section>
-  
   {{-- itmes --}}
 
   {{-- profit --}}
@@ -86,7 +85,7 @@
             <h5 class="font-weight-bold text-white mb-4 mb-md-0">
                 KEUNTUNGAN MENJADI MITRA KAMI
             </h5>
-            <h1 class="text-white fw-bold">ANDA MASIH GALAU INGIN BERGABUNG DENGAN KAMI?</h1>
+            <h1 class="text-white fw-bold">ANDA MASIH GALAU INGIN BERGABUNG DENGAN KAMI ?</h1>
           </div>
         </div>
         <div class="row justify-content-between text-white">
@@ -161,9 +160,9 @@
         <div class="row mb-5 align-items-center" data-aos="fade-right">
           <div>
             <h5 class="text-primary font-weight-bold text-white mb-4 mb-md-0">
-              APA SAJA FRANCHISE YANG KAMI PUNYA?
+              FRANCHISE TERBAIK TAHUN INI ADALAH ?
             </h5>
-            <h1 class="fw-bold text-black">DAFTAR BEBERAPA FRANCHISE TERBAIK</h1>
+            {{-- <h1 class="fw-bold text-black">DAFTAR BEBERAPA FRANCHISE TERBAIK</h1> --}}
           </div>
         </div>
         <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 justify-content-center">

@@ -5,19 +5,21 @@
       <div class="col-lg-10 col-md-12">
         <div>
           <h4 class="text-white">franchiseterbaik.com</h4>
-          <h4 class="text-white fw-semibold" style="font-size: 45px;">Ayo Raih Mimpi Anda Bersama Kami !!</h4>
+          <h4 class="text-white fw-semibold" style="font-size: 44px;">Ayo Raih Mimpi Anda Bersama Kami !!</h4>
         </div>
       </div>
     </div>
     <div class="row">
       <div class="col-lg-8 col-md-6">
-        <div class="col-lg-9">
+        <div class="col-lg-12">
+         <div class="pe-lg-5">
           <p class="text-white fs-5 text-justify mb-3">
             Pilihan investasi usaha yang aman dan sangat diminati di masa modern sekarang ini, sejalan dengan pertumbuhan pasar konsumen terhadap produk atau jasa yang ditawarkan dari usaha kemitraan kami.
           </p>
           <p class="text-white fs-5 text-justify mb-3">
             Sangat bangga dapat menjadi pilihan utama dalam membantu merangkai kesuksesan anda. Maka jangan ragu dalam mempercayakan masa depan anda kepada kami karena kami selalu menjaga kepercayaan yang anda berikan.
           </p>
+         </div>
         </div>
       </div>
       <div class="col-lg-4 col-md-4 text-md-start">
@@ -25,8 +27,8 @@
           <h2 class="text-white">franchiseterbaik.com</h2>
           <ul class="list-unstyled fs-5 text-white" style="line-height: 40px;">
             <li><i class="bi bi-geo-alt"></i> {{ $master->address }}</li>
-            <li><i class="bi bi-telephone"></i> {{ $master->phone_number }}</li>
-            <li><i class="bi bi-whatsapp"></i> {{ $master->whatsapp_number }}</li>
+            <li><i class="bi bi-telephone"></i> +{{ formatPhoneNumber($master->phone_number) }}</li>
+            <li><i class="bi bi-whatsapp"></i> +{{ formatPhoneNumber($master->whatsapp_number) }}</li>
           </ul>
           <a href="https://wa.me/{{ $master->whatsapp_number }}" target="blank" class="btn btn-primary"><i class="bi bi-whatsapp"></i> Hubungi Kami</a>
         </div>
@@ -47,8 +49,6 @@
   $(function () {
     $('#whatsapp-popup').floatingWhatsApp({
       phone: '{{ $master->whatsapp_number }}',
-      popupMessage: 'Hallo 👋, Apakah ada yang bisa kami bantu?',
-      showPopup: true,
       position: 'right'
     });
   });

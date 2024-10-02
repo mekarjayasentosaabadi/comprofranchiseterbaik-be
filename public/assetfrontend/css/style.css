@@ -10392,12 +10392,14 @@ nav[aria-label="breadcrumb"] li:before {
 }
 .btn-outline-primary{
   border: 3px solid #005555 !important;
+  color: black;
 }
 
 .btn-outline-primary:hover, 
 .btn-outline-primary:active 
 {
   background: #005555 !important;
+  color: white !important;
 }
 
 .crop-img {
@@ -10409,4 +10411,7 @@ nav[aria-label="breadcrumb"] li:before {
 
 .g-footer{
   padding-right: 50px;
+}
+.fs-12{
+  font-size: 5px;
 }

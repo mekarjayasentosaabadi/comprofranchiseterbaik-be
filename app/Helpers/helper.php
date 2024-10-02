@@ -18,4 +18,10 @@ if (!function_exists('formatRupiah')) {
             return 'Rp ' . number_format($angka, 0, ',', '.');
         }
     }
+
+    function formatPhoneNumber($number) {
+        $number = preg_replace('/[^0-9]/', '', $number);
+        
+        return preg_replace('/(\d{2})(\d{3})(\d{4})(\d+)/', '$1 $2 $3 $4', $number);
+    }
 }
