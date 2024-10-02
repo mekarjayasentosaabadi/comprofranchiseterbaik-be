@@ -72,8 +72,9 @@ class ProductController extends Controller
                 // 'description'   => 'required',
                 'prices'        => 'required',
                 'contact'       => 'required',
-                'thumbnail'     => 'required|mimes:png,jpg,jpeg|max:1024',
-            ]);
+                'thumbnail'     => 'required|mimes:png,jpg,jpeg|max:2048',
+            ],[
+                'thumbnail.max' => 'Ukuran file gambar maximal 2 Mb',]);
 
             $dataStored = [
                 'judul'             => $request->judul,
@@ -184,6 +185,11 @@ class ProductController extends Controller
                 'contact'           => $request->contact,
             ];
             if($request->hasFile('thumbnail')){
+                $request->validate([
+                    'thumbnail'     => 'mimes:png,jpg,jpeg|max:2048',
+                ], [
+                    'thumbnail.max' => 'File tidak boleh lebih dari 2 MB',
+                ]);
                 $file = $request->file('thumbnail');
                 $filename = time().'.'.$file->getClientOriginalExtension();
                 $file->storeAs('products', $filename);

@@ -127,8 +127,11 @@
                         $('#img-thumbnail').attr('src', '');
                     },
                     error: function(e){
-                        console.log(e)
-                        alert('Gagal mengeksekusi data.!')
+                        if(e.status == 422){
+                            notifSweetAlertErrors(e.responseJSON.message);
+                        } else {
+                            alert('Gagal mengeksekusi data.!')
+                        }
                     }
                 })
             }

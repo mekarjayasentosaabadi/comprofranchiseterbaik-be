@@ -49,8 +49,10 @@ class HeaderbannerController extends Controller
         try {
             $request->validate([
                 'title'         => 'required|unique:listitems,judul',
-                'banner'        => 'required',
+                'banner'        => 'required|max:2048',
                 'subtitle'      => 'required'
+            ],[
+                'banner.max'    => 'Ukuran file gambar maximal 2 Mb',
             ]);
             $dataStored = [
                 'title'         => $request->title,
@@ -109,6 +111,11 @@ class HeaderbannerController extends Controller
                 'slug'          => Str::slug($request->title,'-'),
             ];
             if($request->hasFile('banner')){
+                $request->validate([
+                    'banner'        => 'mimes:png,jpg,jpeg|max:2048',
+                ],[
+                    'banner.max'    => 'Ukuran file gambar maximal 2 Mb',
+                ]);
                 $file = $request->file('banner');
                 $filename = time().'.'.$file->getClientOriginalExtension();
                 $file->storeAs('headerbanner', $filename);

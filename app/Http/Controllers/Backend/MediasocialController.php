@@ -49,6 +49,8 @@ class MediasocialController extends Controller
             $request->validate([
                 'nameMedia'     => 'required',
                 'icons'         => 'required|mimes:png,jpg,jpeg|max:1024',
+            ],[
+                'icons.max'     => 'Ukuran file gambar maximal 1 Mb',
             ]);
             $dataStored = [
                 'name'              => $request->nameMedia,
@@ -101,6 +103,11 @@ class MediasocialController extends Controller
                 'name'              => $request->nameMedia,
             ];
             if($request->hasFile('icons')){
+                $request->validate([
+                    'icons'         => 'mimes:png,jpg,jpeg|max:1024',
+                ], [
+                    'icons.max'     => 'Ukuran file gambar maximal 1 Mb',
+                ]);
                 $request->validate([
                     'icons'         => 'mimes:png,jpg,jpeg|max:1024',
                 ]);

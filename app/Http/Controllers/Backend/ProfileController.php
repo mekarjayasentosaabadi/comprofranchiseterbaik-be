@@ -28,6 +28,11 @@ class ProfileController extends Controller
                 'email'         => $request->email
             ];
             if($request->hasFile('photos')){
+                $request->validate([
+                    'photos' => 'required|mimes:png,jpg,jpeg|max:1024'
+                ], [
+                    'photos.max' => 'Ukuran file gambar maximal 1 Mb'
+                ]);
                 $file = $request->file('photos');
                 $filename = time().'.'.$file->getClientOriginalExtension();
                 $file->storeAs('user', $filename);
