@@ -22,10 +22,10 @@
                     {!! $franchise->description !!}
                 </div>
             </div>
-            <div class="d-flex justify-content-between flex-wrap fs-5 text-black-50" style="width: 70%">
+            <div class="d-flex flex-wrap fs-5 text-black-50">
                 @foreach ($franchisemedsos as $franchisemedso)
                     @if ($franchisemedso->medsos_name != null)
-                        <p class="text-black"><img width="20" src="{{ asset('storage/mediasocial/'.$franchisemedso->mediasocial->icons) }}" alt=""> {{ $franchisemedso->medsos_name}}</p>
+                        <p class="text-black me-5 mb-2"><img width="20" src="{{ asset('storage/mediasocial/'.$franchisemedso->mediasocial->icons) }}" alt=""> {{ $franchisemedso->medsos_name}}</p>
                     @endif
                     {{-- <div class="text-black"><img width="20" src="{{ asset('storage/mediasocial/'.$franchisemedso->mediasocial->icons) }}" alt=""> {{ $franchisemedso->mediasocial->name}}</div> --}}
                 @endforeach
