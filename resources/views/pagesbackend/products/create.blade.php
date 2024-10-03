@@ -120,7 +120,6 @@
                 const newName = $('#accountMediaSocial input[name="nameMedsos[]"]').eq(index).val();
                 dataMedsos[index].nameSave = newName;
             }
-            console.log(dataMedsos);
         }
         $(document).ready(function() {
             $('#formaddproducts').validate({
@@ -147,14 +146,14 @@
                         contentType: false,
                         processData: false,
                         success: function(e) {
-                            console.log(e)
                             if(e.meta.code == 200){
                                 notifSweetAlertSuccess(e.meta.message);
-                                // $('#form-add-products')[0].reset();
+                                setTimeout(() => {
+                                    location.reload();
+                                    }, 1000);
                             }
                         },
                         error: function(e){
-                            console.log(e)
                             if(e.status == 422){
                                 notifSweetAlertErrors(e.responseJSON.message);
                             }

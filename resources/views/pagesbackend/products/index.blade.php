@@ -140,34 +140,36 @@
         //delete products
         function deleteProduct(txt, i) {
             Swal.fire({
-                title: 'Are you sure?',
-                text: "You won't be able to revert this!",
+                title: 'Apakah anda yakin.?',
+                text: "Data yang di hapus tidak dapat dikembalikan!",
                 icon: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',
                 cancelButtonColor: '#d33',
-                confirmButtonText: 'Yes, delete it!'
+                confirmButtonText: 'Yes'
             }).then((result) => {
-                $.ajax({
-                    url: window.location.origin + '/' + listRoutes['product.delete'].replace('{id}', i),
-                    type: "POST",
-                    dataType: "JSON",
-                    processData: false,
-                    contentType: false,
-                    success: function(e) {
-                        if(e.meta.code == 200){
-                            notifSweetAlertSuccess(e.meta.message)
-                            setTimeout(function(){
-                                table.ajax.reload();
-                            }, 1500)
+                if(result.isConfirmed){
+                    $.ajax({
+                        url: window.location.origin + '/' + listRoutes['product.delete'].replace('{id}', i),
+                        type: "POST",
+                        dataType: "JSON",
+                        processData: false,
+                        contentType: false,
+                        success: function(e) {
+                            if(e.meta.code == 200){
+                                notifSweetAlertSuccess(e.meta.message)
+                                setTimeout(function(){
+                                    table.ajax.reload();
+                                }, 1500)
+                            }
+                        },
+                        error: function(e){
+                            if(e.status == 422){
+                                notifSweetAlertErrors(e.responseJSON.message);
+                            }
                         }
-                    },
-                    error: function(e){
-                        if(e.status == 422){
-                            notifSweetAlertErrors(e.responseJSON.message);
-                        }
-                    }
-                })
+                    })
+                }
             })
         }
     </script>

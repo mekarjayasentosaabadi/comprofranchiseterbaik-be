@@ -152,7 +152,7 @@
                     </div>
                     <div class="d-flex align-item-center justify-content-between flex-grow-1">
                         <div class="me-1 col-md-6">
-                            <input type="text" name="nameMedsos[]" id="google" class="form-control" onchange="changeNameMedsos(${x.iMedsos})" placeholder="Write the account medsos ${x.name}" value="${x.nameSave}">
+                            <input type="text" name="nameMedsos[]" id="google" class="form-control" onchange="changeNameMedsos(${x.iMedsos})" placeholder="Write the account medsos ${x.name}" value="${x.nameSave == null ? '' : x.nameSave}">
                             <input type="hidden" name="iMed${x.iMedsos}" value="${x.iMedsos}">
                         </div>
                     </div>
@@ -194,6 +194,9 @@
                         success: function(e) {
                             if(e.meta.code == 200){
                                 notifSweetAlertSuccess(e.meta.message);
+                                setTimeout(() => {
+                                    location.reload();
+                                }, 1000);
                                 // $('#form-add-products')[0].reset();
                             }
                         },

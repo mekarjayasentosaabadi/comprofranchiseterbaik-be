@@ -81,6 +81,7 @@
                             notifSweetAlertSuccess(e.meta.message);
                             $('#formaddlistitem').trigger('reset');
                             $('#description').val('')
+                            CKEDITOR.instances.description.setData('');
                         },
                         error: function(e){
                             if(e.status == 422){

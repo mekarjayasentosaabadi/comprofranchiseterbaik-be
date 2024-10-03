@@ -26,7 +26,7 @@ class ProductController extends Controller
             ->addColumn('action', function($x){
                 $btn = '<div>';
                 $btn .='<a href="'.route('product.edit',Crypt::encrypt($x->id)).'" class="btn btn-warning btn-sm" title="Edit Produtcs"><li class="fa fa-edit"></li></a> ';
-                $btn .='<button class="btn btn-danger btn-sm"><li class="fa fa-trash" onclick="deleteProduct(this,'.$x->id.')"></li></button>';
+                $btn .='<button class="btn btn-danger btn-sm" onclick="deleteProduct(this,'.$x->id.')"><li class="fa fa-trash" ></li></button>';
                 $btn .= '</div>';
                 return $btn;
             })

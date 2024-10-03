@@ -24,7 +24,7 @@ class ListitemController extends Controller
             ->addColumn('action', function($x){
                 $btn = '<div>';
                 $btn .='<a href="'.route('listitem.show',Crypt::encrypt($x->id)).'" class="btn btn-warning btn-sm" title="Edit List Item"><li class="fa fa-edit"></li></a> ';
-                $btn .='<button class="btn btn-danger btn-sm"><li class="fa fa-trash" onclick="deleteList(this,'.$x->id.')"></li></button>';
+                $btn .='<button class="btn btn-danger btn-sm" onclick="deleteList(this,'.$x->id.')"><li class="fa fa-trash" ></li></button>';
                 $btn .= '</div>';
                 return $btn;
             })
