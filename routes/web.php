@@ -65,6 +65,8 @@ Route::middleware('auth')->group(function () {
             Route::post('/{id}/changeStatus', [ListitemController::class, 'changeStatus'])->name('listitem.changeStatus');
             Route::get('/{id}/show', [ListitemController::class, 'show'])->name('listitem.show');
             Route::post('/{id}/update', [ListitemController::class, 'update'])->name('listitem.update');
+            Route::post('/{id}/delete', [ListitemController::class, 'delete'])->name('listitem.delete');
+
         });
 
         //header banner

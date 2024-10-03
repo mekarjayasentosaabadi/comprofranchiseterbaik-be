@@ -9,6 +9,7 @@ use Yajra\DataTables\DataTables;
 use App\Helpers\ResponseFormatter;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Crypt;
+use Illuminate\Support\Facades\Storage;
 
 class ListitemController extends Controller
 {
@@ -23,6 +24,7 @@ class ListitemController extends Controller
             ->addColumn('action', function($x){
                 $btn = '<div>';
                 $btn .='<a href="'.route('listitem.show',Crypt::encrypt($x->id)).'" class="btn btn-warning btn-sm" title="Edit List Item"><li class="fa fa-edit"></li></a> ';
+                $btn .='<button class="btn btn-danger btn-sm"><li class="fa fa-trash" onclick="deleteList(this,'.$x->id.')"></li></button>';
                 $btn .= '</div>';
                 return $btn;
             })
@@ -137,6 +139,16 @@ class ListitemController extends Controller
             return ResponseFormatter::success([], 'Berhasil menyimpan data');
         } catch (Exception $error) {
             return ResponseFormatter::error([], 'Gagal menyimpan data');
+        }
+    }
+    function delete($id){
+        try {
+            $find = Listitem::where('id', $id)->first();
+            $find->delete();
+            Storage::delete('listitem/'.$find->icons);
+            return ResponseFormatter::success([], 'Berhasil Menghapus List Items');
+        } catch (Exception $error) {
+            return ResponseFormatter::error([], 'Something went wrong');
         }
     }
 }
