@@ -29,7 +29,7 @@
         <div class="row mb-2 align-items-center" data-aos="fade-right">
           <div class="col-lg-8">
             <h5 class="font-weight-bold text-primary mb-4 mb-md-0">
-                KENAPA HARUS BERGABUNG DENGAN KAMI
+                KENAPA HARUS BERGABUNG DENGAN KAMI ? 
             </h5>
             <h1 class="fw-bold">{{ $master->titleheader }}</h1>
           </div>
@@ -92,7 +92,7 @@
           <div>
             <div class="fs-5 d-flex gap-2" data-aos="fade-up" data-aos-delay="300">
               <i class="bi bi-check-circle-fill"></i>
-              <p>100% Profit milik mitra*</p>
+              <p>100% profit milik mitra*</p>
             </div>
             <div class="fs-5 d-flex gap-2" data-aos="fade-up" data-aos-delay="300">
               <i class="bi bi-check-circle-fill"></i>
@@ -124,7 +124,7 @@
             </div>
             <div class="fs-5 d-flex gap-2" data-aos="fade-up" data-aos-delay="300">
               <i class="bi bi-check-circle-fill"></i>
-              <p>Didukung oleh perusahaan yangsesuai bidang usaha nya sangat berpengalaman di industri kemitraan</p>
+              <p>Didukung oleh perusahaan yang sesuai bidang usahanya sangat berpengalaman di industri kemitraan</p>
             </div>
             <div class="fs-5 d-flex gap-2" data-aos="fade-up"  data-aos-delay="300">
               <i class="bi bi-check-circle-fill"></i>
@@ -136,11 +136,11 @@
             </div>
             <div class="fs-5 d-flex gap-2" data-aos="fade-up" data-aos-delay="300">
               <i class="bi bi-check-circle-fill"></i>
-              <p>Tempat usaha fleksibel, bisa diruko / rumah / pergudangan / mall / perkantoran / pusat onderdil, dil</p>
+              <p>Tempat usaha fleksibel, bisa diruko / rumah / pergudangan / mall / perkantoran / pusat onderdil, dll</p>
             </div>
             <div class="fs-5 d-flex gap-2" data-aos="fade-up" data-aos-delay="300">
               <i class="bi bi-check-circle-fill"></i>
-              <p>Tidak perlu membuat sistem bisnis, SOP, cara menangani konsumen, pengemban Produk dan jasa dijual dengan harga lebih terjangkau sehingga mempunyai target market konsumen yang sangat luas</p>
+              <p>Tidak perlu membuat sistem bisnis, SOP, cara menangani konsumen, pengembangan produk dan jasa dijual dengan harga lebih terjangkau sehingga mempunyai target market konsumen yang sangat luas</p>
             </div>
             <div class="fs-5 d-flex gap-2" data-aos="fade-up" data-aos-delay="300">
               <i class="bi bi-check-circle-fill"></i>
@@ -160,7 +160,7 @@
         <div class="row mb-5 align-items-center" data-aos="fade-right">
           <div>
             <h5 class="text-primary font-weight-bold text-white mb-4 mb-md-0">
-              FRANCHISE TERBAIK TAHUN INI ADALAH ?
+              FRANCHISE TERBAIK TAHUN INI ADALAH :
             </h5>
             {{-- <h1 class="fw-bold text-black">DAFTAR BEBERAPA FRANCHISE TERBAIK</h1> --}}
           </div>
@@ -183,18 +183,6 @@
                   </div>
                   <div class="price mb-2">
                     <span style="font-size: 24px;">
-                      {{-- @php
-                        // if ($franchise->discount != 0) {
-                        //   $discount = $franchise->discount;
-                        //   $price    = $franchise->prices;
-                        //   $priceDiscount   = $price - ($price * $discount / 100);
-                        //   if ($priceDiscount < 0) {
-                        //     $priceDiscount = 0;
-                        //   }
-                        // }else {
-                        //   $price = $franchise->prices;
-                        // }
-                      @endphp --}}
                       @if ($franchise->prices != 0)
                         {{ formatRupiah( $franchise->discount != 0 ? $franchise->discount : $franchise->prices ) }}
                       @endif

@@ -20,7 +20,7 @@
         <h2 class="text-white">franchiseterbaik.com</h2>
         <ul class="list-unstyled fs-5 text-white" style="line-height: 40px;">
           <li><i class="bi bi-geo-alt"></i> {{ $master->address }}</li>
-          <li><i class="bi bi-telephone"></i> {{ formatPhoneNumber($master->phone_number) }}</li>
+          <li><i class="bi bi-telephone"></i> {{ formatNomorKantor($master->phone_number) }}</li>
           <li><i class="bi bi-whatsapp"></i> {{ formatPhoneNumber($master->whatsapp_number) }}</li>
         </ul>
         <a href="https://wa.me/{{ $master->whatsapp_number }}" target="_blank" class="btn btn-primary">
