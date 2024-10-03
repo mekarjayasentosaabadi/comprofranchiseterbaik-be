@@ -129,8 +129,9 @@
                     error: function(e){
                         if(e.status == 422){
                             notifSweetAlertErrors(e.responseJSON.message);
-                        } else {
-                            alert('Gagal mengeksekusi data.!')
+                        }
+                        if(e.status == 413){
+                            notifSweetAlertErrors('File terlalu besar, ukuran maksimal 2 MB');
                         }
                     }
                 })
