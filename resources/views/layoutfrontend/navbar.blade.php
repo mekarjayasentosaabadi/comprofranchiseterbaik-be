@@ -7,6 +7,8 @@
             <ul
               class="js-clone-nav d-none d-lg-inline-block text-start site-menu float-end"
             >
+
+            <li><a href="/"><i class="bi bi-house-door-fill"></i></a> <span class="text-white">|</span> </li>
             @foreach ($franchises as $franchise)
                 @if ($franchise->is_menu == 1)
                   <li><a href="/show-franchise/{{ $franchise->slug }}">{{ $franchise->judul }}</a></li>
