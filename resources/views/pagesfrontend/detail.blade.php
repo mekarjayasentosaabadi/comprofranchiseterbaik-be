@@ -2,6 +2,15 @@
 @section('title')
     {{ $franchise->judul }}
 @endsection
+@section('custom-css')
+    <style>
+        .icon-img {
+            width: 20px;   
+            height: 20px;  
+            object-fit: contain; 
+        }
+    </style>
+@endsection
 @section('content')
     <div class="section bg-light">
         <div class="container" style="margin-top: 200px; margin-bottom:200px;">
@@ -25,12 +34,13 @@
             <div class="d-flex flex-wrap fs-5 text-black-50">
                 @foreach ($franchisemedsos as $franchisemedso)
                     @if ($franchisemedso->medsos_name != null)
-                        <p class="text-black me-5 mb-2"><img width="20" src="{{ asset('storage/mediasocial/'.$franchisemedso->mediasocial->icons) }}" alt=""> {{ $franchisemedso->medsos_name}}</p>
+                        <p class="text-black me-5 mb-2">
+                            <img class="img-fluid icon-img" src="{{ asset('storage/mediasocial/'.$franchisemedso->mediasocial->icons) }}" alt="">
+                            {{ $franchisemedso->medsos_name }}
+                        </p>
                     @endif
-                    {{-- <div class="text-black"><img width="20" src="{{ asset('storage/mediasocial/'.$franchisemedso->mediasocial->icons) }}" alt=""> {{ $franchisemedso->mediasocial->name}}</div> --}}
                 @endforeach
-            </div>
-            </div>
+            </div>            
         </div>
         </div>
     </div>

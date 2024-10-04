@@ -3,25 +3,18 @@
         <div class="menu-bg-wrap">
           <div class="site-navigation d-flex justify-content-center align-items-center">
             <!-- <a href="index.html" class="logo m-0 float-start">Property</a> -->
-
-            <ul
-              class="js-clone-nav d-none d-lg-inline-block text-start site-menu float-end"
-            >
-
-            <li><a href="/"><i class="bi bi-house-door-fill"></i></a> <span class="text-white">|</span> </li>
-            @foreach ($franchises as $franchise)
-                @if ($franchise->is_menu == 1)
-                  <li><a href="/show-franchise/{{ $franchise->slug }}">{{ $franchise->judul }}</a></li>
-                @endif
-            @endforeach
-            </ul>
-
-            <a
-              href="#"
-              class="burger light me-auto float-end mt-1 site-menu-toggle js-menu-toggle d-inline-block d-lg-none"
-              data-toggle="collapse"
-              data-target="#main-navbar"
-            >
+            <ul class="js-clone-nav d-none d-lg-inline-block text-start site-menu float-end">
+              <li class="pr-5">
+                <a href="/"><i class="bi bi-house-door-fill fs-5"></i></a>
+                <div class="px-5"></div>
+              </li>
+                  @foreach ($franchises as $franchise)
+                      @if ($franchise->is_menu == 1)
+                        <li><a href="/show-franchise/{{ $franchise->slug }}">{{ $franchise->judul }}</a></li>
+                      @endif
+                  @endforeach
+              </ul>
+            <a href="#" class="burger light me-auto float-end mt-1 site-menu-toggle js-menu-toggle d-inline-block d-lg-none" data-toggle="collapse" data-target="#main-navbar">
               <span></span>
             </a>
           </div>

@@ -2,6 +2,7 @@
 <html lang="en">
   <head>
         @include('layoutfrontend.header')
+        @yield('custom-css')
   </head>
   <body>
     <div class="site-mobile-menu site-navbar-target">
