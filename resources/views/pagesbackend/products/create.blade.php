@@ -101,10 +101,11 @@
             dataMedsos.map((x,i)=>{
                 $('#accountMediaSocial').append(`
                 <div class="d-flex mt-2" >
-                    <div class="flex-shrink-0">
-                        <img src="{{ asset('storage/mediasocial/') }}/${x.icons}" alt="google" class="me-1" height="38" width="38" />
+                    <div class="flex-shrink-1 col-sm-1 d-flex justify-content-center align-items-center">
+                        <img src="{{ asset('storage/mediasocial/') }}/${x.icons}" alt="google" class="me-1" style="width: auto; height: 38px;" />
                     </div>
-                    <div class="d-flex align-item-center justify-content-between flex-grow-1">
+                    <div class="flex p-2"></div>
+                    <div class="flex align-item-center justify-content-between flex-grow-1">
                         <div class="me-1 col-md-6">
                             <input type="text" name="nameMedsos[]" id="google" class="form-control" onchange="changeNameMedsos(${x.iMedsos})" placeholder="Write the account medsos ${x.name}">
                             <input type="hidden" name="iMed${x.iMedsos}" value="${x.iMedsos}">

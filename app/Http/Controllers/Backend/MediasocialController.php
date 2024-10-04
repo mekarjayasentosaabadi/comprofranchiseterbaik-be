@@ -35,7 +35,7 @@ class MediasocialController extends Controller
             })
             ->addColumn('pictures', function($x){
                 $gambar = asset('storage/mediasocial/'.$x->icons);
-                $img = '<img src="'.$gambar.'" width="50px" class="img-fluid">';
+                $img = '<div class="d-flex justify-content-center align-items-center"><img src="'.$gambar.'" class="img-fluid" style="width: auto; height: 38px;"/></div>';
                 return $img;
             })
             ->rawColumns(['action', 'pictures', 'toggle'])
@@ -48,9 +48,9 @@ class MediasocialController extends Controller
         try {
             $request->validate([
                 'nameMedia'     => 'required',
-                'icons'         => 'required|mimes:png,jpg,jpeg|max:1024',
+                'icons'         => 'required|mimes:png,jpg,jpeg|max:2048',
             ],[
-                'icons.max'     => 'Ukuran file gambar maximal 1 Mb',
+                'icons.max'     => 'Ukuran file gambar maximal 2 Mb',
             ]);
             $dataStored = [
                 'name'              => $request->nameMedia,
@@ -104,12 +104,9 @@ class MediasocialController extends Controller
             ];
             if($request->hasFile('icons')){
                 $request->validate([
-                    'icons'         => 'mimes:png,jpg,jpeg|max:1024',
+                    'icons'         => 'mimes:png,jpg,jpeg|max:2048',
                 ], [
-                    'icons.max'     => 'Ukuran file gambar maximal 1 Mb',
-                ]);
-                $request->validate([
-                    'icons'         => 'mimes:png,jpg,jpeg|max:1024',
+                    'icons.max'     => 'Ukuran file gambar maximal 2 Mb',
                 ]);
                 $file = $request->file('icons');
                 $filename = time().'.'.$file->getClientOriginalExtension();

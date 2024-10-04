@@ -22,7 +22,7 @@ use App\Http\Controllers\Backend\HeaderbannerController;
 |
 */
 
-Route::get('/', [HomeController::class, 'index']);
+Route::get('/', [HomeController::class, 'index'])->name('homepage');
 Route::get('/show-franchise/{slug}', [HomeController::class, 'show']);
 
 
@@ -106,8 +106,6 @@ Route::middleware('auth')->group(function () {
             Route::get('/',[ProfileController::class, 'index'])->name('profile.index');
             Route::post('/update', [ProfileController::class, 'update'])->name('profile.update');
             Route::post('/updatepassword', [ProfileController::class, 'updatepassword'])->name('profile.updatepassword');
-            // Route::post('/storefooter', [ProfileController::class, 'storefooter'])->name('profile.storefooter');
-            // Route::post('/storecontact', [ProfileController::class, 'storecontact'])->name('profile.storecontact');
         });
         //Dashboard
         Route::prefix('dashboard')->group(function(){

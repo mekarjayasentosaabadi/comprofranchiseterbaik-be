@@ -63,9 +63,9 @@ class ListitemController extends Controller
             $request->validate([
                 'title'      => 'required|unique:listitems,judul',
                 'description'   => 'required',
-                'icon'         => 'required|mimes:png,jpg,jpeg|max:1024'
+                'icon'         => 'required|mimes:png,jpg,jpeg|max:2048'
             ],[
-                'icon.max'      => 'Ukuran icon maksimal 1 MB',
+                'icon.max'      => 'Ukuran icon maksimal 2 MB',
             ]);
             $dataStored = [
                 'judul'         => $request->title,
@@ -126,9 +126,9 @@ class ListitemController extends Controller
             ];
             if($request->hasFile('icon')){
                 $request->validate([
-                    'icon'         => 'mimes:png,jpg,jpeg|max:1024'
+                    'icon'         => 'mimes:png,jpg,jpeg|max:2048'
                 ], [
-                    'icon.max'      => 'Ukuran icon maksimal 1 MB',
+                    'icon.max'      => 'Ukuran icon maksimal 2 MB',
                 ]);
                 $file = $request->file('icon');
                 $filename = time().'.'.$file->getClientOriginalExtension();

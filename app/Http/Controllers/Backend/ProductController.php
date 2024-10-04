@@ -69,12 +69,14 @@ class ProductController extends Controller
             $request->validate([
                 'judul'         => 'required|unique:franchises,judul',
                 'title'         => 'required',
-                // 'description'   => 'required',
+                'description'   => 'required',
                 'prices'        => 'required',
                 'contact'       => 'required',
                 'thumbnail'     => 'required|mimes:png,jpg,jpeg|max:2048',
             ],[
-                'thumbnail.max' => 'Ukuran file gambar maximal 2 Mb',]);
+                'thumbnail.max'         => 'Ukuran file gambar maximal 2 Mb',
+                'description.required'  => 'Deskripsi wajib diisi',
+            ]);
 
             $dataStored = [
                 'judul'             => $request->judul,
@@ -173,6 +175,9 @@ class ProductController extends Controller
                 'prices'        => 'required',
                 'contact'       => 'required',
                 // 'thumbnail'     => 'required|mimes:png,jpg,jpeg|max:1024',
+                'descriptions'  => 'required',
+            ],[
+                'descriptions.required' => 'Description tidak boleh kosong',
             ]);
 
             $dataStored = [

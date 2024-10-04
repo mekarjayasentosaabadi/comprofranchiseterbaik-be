@@ -26,6 +26,11 @@ class MasterwebController extends Controller
                 'descriptionheader' => $request->descriptionheader
             ];
             if($request->hasFile('imageheader')){
+                $request->validate([
+                    'imageheader' => 'mimes:png,jpg,jpeg|max:2048'
+                ],[
+                    'imageheader.max' => 'Ukuran file gambar maximal 2 Mb',
+                ]);
                 $file = $request->file('imageheader');
                 $filename = time().'.'.$file->getClientOriginalExtension();
                 $file->storeAs('masterweb', $filename);
