@@ -24,10 +24,10 @@
                 </div>
             </div>
             <div class="col-lg-6">
-            <div class="fs-4 text-justify">
+            <div class="fs-4 ">
                 <h1 class="fw-bold text-primary">{{ $franchise->judul }}</h1>
                 <h5 class="fw-normal text-black mb-4">{{ $franchise->title }}</h5>
-                <div class="fs-5 text-black">
+                <div class="fs-5 text-black text-justify">
                     {!! $franchise->description !!}
                 </div>
             </div>
