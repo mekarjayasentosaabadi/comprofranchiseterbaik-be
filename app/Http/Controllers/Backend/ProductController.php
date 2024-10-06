@@ -238,7 +238,7 @@ class ProductController extends Controller
     }
 
     function getDataMedsos(){
-        $tbl = Mediasocial::all();
+        $tbl = Mediasocial::where('is_active', 1)->get();
 
         return DataTables::of($tbl)
             ->addColumn('action', function($x){
