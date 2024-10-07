@@ -41,7 +41,7 @@
             </div>
           </div>
           <div class="col-lg-5">
-            <p class="fs-5 mb-5 me-lg-5 text-justify">
+            <p class="fs-5 mb-5 me-lg-5">
                {{ $master->descriptionheader }}
             </p>
             <div><a href="https://wa.me/{{ $master->whatsapp_number }}" class="btn btn-primary"><i class="bi bi-whatsapp"></i> Hubungi Kami</a></div>
