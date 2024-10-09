@@ -10431,4 +10431,13 @@ nav[aria-label="breadcrumb"] li:before {
   .icon-nav-active{
     color: black !important;
   }
+  .site-footer {
+    background: #efefef;
+    font-size: 14px;
+    color: #888;
+    padding-left: 0px;
+    padding-right: 0px;
+    padding-bottom: 20px;
+    padding-top:  70px;
+  }
 }
