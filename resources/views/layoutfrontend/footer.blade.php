@@ -30,6 +30,8 @@
       </div>
     </div>
   </div>
+  <hr >
+  <p class="text-white text-center">&copy; <span>{{ date('Y') }}</span> <b>Makko Group</b>. All Rights Reserved.</p>
 </div>
 
 
@@ -50,7 +52,6 @@
     });
   });
 </script>
-
 <script src="{{ asset('assetfrontend/js/bootstrap.bundle.min.js') }}"></script>
 <script src="{{ asset('assetfrontend/js/tiny-slider.js') }}"></script>
 <script src="{{ asset('assetfrontend/js/aos.js') }}"></script>

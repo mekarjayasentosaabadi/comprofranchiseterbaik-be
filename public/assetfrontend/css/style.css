@@ -10324,7 +10324,7 @@ nav[aria-label="breadcrumb"] li:before {
   background: #efefef;
   font-size: 14px;
   color: #888;
-  padding: 70px 0; }
+  padding: 70px 70px 5px 70px; }
   .site-footer a {
     color: #777;
     position: relative;
@@ -10416,3 +10416,19 @@ nav[aria-label="breadcrumb"] li:before {
   font-size: 5px;
 }
 
+.active-nav{
+  color: white !important;
+}
+
+.icon-nav-active{
+  color: white !important;
+}
+
+@media (max-width: 990px) {
+  .active-nav {
+    color: black !important;
+  }
+  .icon-nav-active{
+    color: black !important;
+  }
+}
