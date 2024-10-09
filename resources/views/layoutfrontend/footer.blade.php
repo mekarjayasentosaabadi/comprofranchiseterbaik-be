@@ -31,7 +31,7 @@
     </div>
   </div>
   <hr >
-  <p class="text-white text-center">&copy; <span>{{ date('Y') }}</span> <b>Makko Group</b>. All Rights Reserved.</p>
+  <p class="text-white text-center">&copy; <span>{{ date('Y') }}</span>Makko Group. All Rights Reserved.</p>
 </div>
 
 
