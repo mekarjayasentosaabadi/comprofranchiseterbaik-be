@@ -1,7 +1,11 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="author" content="Untree.co" />
-<link rel="icon" href="{{ asset('assetfrontend/images/favicon.ico') }}" type="image/x-icon">
+{{-- <link rel="icon" href="{{ asset('assetfrontend/images/favicon.ico') }}" type="image/x-icon"> --}}
+<link rel="icon" type="image/png" href="{{ asset('assetfrontend/images/favicon.png') }}" sizes="48x48" />
+<link rel="icon" type="image/svg+xml" href="{{ asset('assetfrontend/images/favicon.svg') }}" />
+<link rel="shortcut icon" href="{{ asset('assetfrontend/images/favicon.ico') }}" />
+<link rel="apple-touch-icon" sizes="180x180" href="/{{ asset('assetfrontend/images/favicon.png') }}" />
 
 <meta name="description" content="" />
 <meta name="keywords" content="bootstrap, bootstrap5" />

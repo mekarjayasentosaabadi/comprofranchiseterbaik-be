@@ -194,7 +194,7 @@
                   </div>
                   <div class="mt-auto d-flex flex-wrap gap-1">
                     <a href="/show-franchise/{{ $franchise->slug }}" class="btn btn-outline-primary py-2 px-3 d-flex align-items-center justify-content-center">Lihat Detail</a>
-                    <a href="https://wa.me/{{ $franchise->contact }}" class="btn btn-primary py-2 px-3 d-flex align-items-center justify-content-center">Hubungi Kami</a>
+                    <a target="blank" href="https://wa.me/{{ $franchise->contact }}?text=Saya%20tertarik%20dengan%20{{ $franchise->judul }}" class="btn btn-primary py-2 px-3 d-flex align-items-center justify-content-center">Hubungi Kami</a>
                   </div>
                 </div>
               </div>
