@@ -44,7 +44,7 @@
             <p class="fs-5 mb-5 me-lg-5">
                {{ $master->descriptionheader }}
             </p>
-            <div><a href="https://wa.me/{{ $master->whatsapp_number }}" class="btn btn-primary"><i class="bi bi-whatsapp"></i> Hubungi Kami</a></div>
+            <div><a target="_blank" href="https://wa.me/{{ $master->whatsapp_number }}?text=Halo kak, boleh minta info detailnya mengenai Franchise Terbaik ?" class="btn btn-primary"><i class="bi bi-whatsapp"></i> Hubungi Kami</a></div>
           </div>
         </div>
       </div>
@@ -166,7 +166,6 @@
           </div>
         </div>
         <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 justify-content-center">
-
           @foreach ($franchises as $franchise)
             <div class="col" data-aos="fade-up" data-aos-delay="500">
               <div class="property-item mb-30 shadow-sm d-flex flex-column h-100">
@@ -193,8 +192,12 @@
                     <span class="d-block py-3 fw-bold">{{ $franchise->title }}</span>
                   </div>
                   <div class="mt-auto d-flex flex-wrap gap-1">
-                    <a href="/show-franchise/{{ $franchise->slug }}" class="btn btn-outline-primary py-2 px-3 d-flex align-items-center justify-content-center">Lihat Detail</a>
-                    <a target="blank" href="https://wa.me/{{ $franchise->contact }}?text=Saya%20tertarik%20dengan%20{{ $franchise->judul }}" class="btn btn-primary py-2 px-3 d-flex align-items-center justify-content-center">Hubungi Kami</a>
+                    <a href="/show-franchise/{{ $franchise->slug}}" class="btn btn-outline-primary py-2 px-3 d-flex align-items-center justify-content-center">Lihat Detail</a>
+                    <a target="_blank" 
+                        href="https://wa.me/{{ $franchise->contact }}?text=Halo kak, minta info detailnya tentang Franchise {{ $franchise->judul }} ?" 
+                        class="btn btn-primary py-2 px-3 d-flex align-items-center justify-content-center">
+                        Hubungi Kami
+                    </a>
                   </div>
                 </div>
               </div>

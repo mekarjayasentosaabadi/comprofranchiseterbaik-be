@@ -24,7 +24,7 @@
           <li><i class="bi bi-telephone"></i> {{ formatNomorKantor($master->phone_number) }}</li>
           <li><i class="bi bi-whatsapp"></i> {{ formatPhoneNumber($master->whatsapp_number) }}</li>
         </ul>
-        <a href="https://wa.me/{{ $master->whatsapp_number }}" target="_blank" class="btn btn-primary">
+        <a href="https://wa.me/{{ $master->whatsapp_number }}?text=Halo kak, boleh minta info detailnya mengenai Franchise Terbaik ? " target="_blank" class="btn btn-primary">
           <i class="bi bi-whatsapp"></i> Hubungi Kami
         </a>
       </div>
@@ -48,7 +48,8 @@
   $(function () {
     $('#whatsapp-popup').floatingWhatsApp({
       phone: '{{ $master->whatsapp_number }}',
-      position: 'right'
+      position: 'right',
+      message: "Halo kak, boleh minta info detailnya mengenai Franchise Terbaik ?"
     });
   });
 </script>

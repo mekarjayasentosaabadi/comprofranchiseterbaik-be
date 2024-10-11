@@ -21,8 +21,7 @@
                             class="img-fluid w-100" />
                     </div>
                     <div class="mt-5 d-flex justify-content-center">
-                        <div><a target="blank" href="https://wa.me/{{ $franchise->contact }}" class="btn btn-primary"><i
-                                    class="bi bi-whatsapp"></i> Hubungi Kami</a></div>
+                        <div><a target="blank" href="https://wa.me/{{ $franchise->contact}}?text=Halo kak, minta info detailnya tentang Franchise {{ $franchise->judul }} ?" class="btn btn-primary"><i class="bi bi-whatsapp"></i> Hubungi Kami</a></div>
                     </div>
                 </div>
                 <div class="col-lg-6">
