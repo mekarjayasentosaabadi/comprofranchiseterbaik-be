@@ -87,6 +87,7 @@
                         processData: false,
                         contentType: false,
                         success: function(e){
+                            console.log(e)
                             notifSweetAlertSuccess(e.meta.message);
                             $('#formaddarticle').trigger('reset');
                             $('#description').val('')

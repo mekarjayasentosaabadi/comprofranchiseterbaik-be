@@ -104,15 +104,11 @@ class ArticleController extends Controller
                         'article_id' => $data->id
                     ]);
                     $skippedTags[] = $existingTag;
-                }
-                else {
-                    $skippedTags[] = $existingTag;
-                    foreach ($skippedTags as $key => $value) {
-                        $data->articletag()->create([
-                            'tag_id' => $key,
-                            'article_id' => $data->id
-                        ]);
-                    }
+                } else {
+                    $data->articletag()->create([
+                        'tag_id' => $existingTag->id,
+                        'article_id' => $data->id
+                    ]);
                 }
             }
             return ResponseFormatter::success([$skippedTags], 'Berhasil menyimpan data');
