@@ -10457,7 +10457,7 @@ nav[aria-label="breadcrumb"] li:before {
 }
 .badge-tags-news:hover{
   transition: all 0.3s ease-in-out;
-  border: 2px solid white !important; 
+  border: 2px solid  #005555 !important; 
   background: #005555;
   color: white;
 }

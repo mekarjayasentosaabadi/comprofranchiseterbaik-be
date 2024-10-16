@@ -29,7 +29,7 @@ Route::get('/show-franchise/{slug}', [HomeController::class, 'show']);
 
 Route::prefix('article')->group(function(){
     Route::get('/', [FrontendArticleController::class, 'index']);
-    Route::get('/show-article', [FrontendArticleController::class, 'show']); 
+    Route::get('/{slug}', [FrontendArticleController::class, 'show']); 
 });
 
 

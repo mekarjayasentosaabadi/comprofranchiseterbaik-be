@@ -263,39 +263,22 @@
         </div>
       </div>
       <div class="row row-cols-1 row-cols-md-2 g-4 mb-5">
-        <div class="col-md-4 d-flex align-items-stretch">
-          <div class="card">
-            <img src="{{ asset('assetfrontend/images/home/article/article1.png') }}" class="card-img-top" alt="...">
-            <div class="card-body">
-              <small><b>20-12-2024</b></small>
-              <h5 class="card-title"><a href="">TOP COAT INDONESIA</a></h5>
-              <p class="card-text text-3-line">Bergabung bersama dengan franchiseterbaik seperti dokter mobil memberikan akses ke brand yang sudah di uji dukungan pelatihan, panduan lokasi, kualitas produk yang...</p>
-              <a href="" class="btn btn-primary py-2 px-3 mt-2">VIEW DETAIL</a>
-            </div>
+        @foreach ($articles as $article)
+            <div class="col-md-4 d-flex align-items-stretch">
+              <div class="card">
+                  <div style="height: 315px; width: 100%; overflow: hidden;">
+                      <img src="{{ asset('storage/article/'.$article->thumbnail) }}" class="card-img-top"
+                          style="object-fit: cover; width: 100%; height: 100%;" alt="...">
+                  </div>
+                  <div class="card-body d-flex flex-column">
+                      <small><b>{{ $article->created_at->format('d F Y') }}</b></small>
+                      <h5 class="card-title py-3"><a href="">{{ $article->title }}</a></h5>
+                      <p class="card-text text-3-line mb-4">{!! Str::limit(strip_tags($article->content), 200) !!}</p>
+                      <a href="/article/{{ $article->slug }}" class="btn btn-primary py-2 px-3 mt-auto" style="width: 150px">VIEW DETAIL</a>
+                  </div>
+              </div>
           </div>
-        </div>
-        <div class="col-md-4 d-flex align-items-stretch">
-          <div class="card">
-            <img src="{{ asset('assetfrontend/images/home/article/article2.png') }}" class="card-img-top" alt="...">
-            <div class="card-body">
-              <small><b>20-12-2024</b></small>
-              <h5 class="card-title">FRANCHISE PIJAT TERBAIK ? </h5>
-              <p class="card-text text-3-line">Bergabung bersama dengan franchiseterbaik seperti dokter mobil memberikan akses ke brand yang sudah di uji dukungan pelatihan, panduan lokasi, kualitas produk yang...</p>
-              <a href="" class="btn btn-primary py-2 px-3 mt-2">VIEW DETAIL</a>
-            </div> 
-          </div>
-        </div>
-        <div class="col-md-4 d-flex align-items-stretch">
-          <div class="card">
-            <img src="{{ asset('assetfrontend/images/home/article/article3.png') }}" class="card-img-top" alt="...">
-            <div class="card-body">
-              <small><b>20-12-2024</b></small>
-              <h5 class="card-title">MAU PUNYA FRANCHISE CUCI HELM MOTOR ? </h5>
-              <p class="card-text text-3-line">Bergabung bersama dengan franchiseterbaik seperti dokter mobil memberikan akses </p>
-              <a href="" class="btn btn-primary py-2 px-3 mt-2">VIEW DETAIL</a>
-            </div>
-          </div>
-        </div>
+        @endforeach
       </div>
       <div class="d-flex justify-content-center">
           <a href="/article" class="btn btn-primary py-2 px-3">VIEW MORE</a>
