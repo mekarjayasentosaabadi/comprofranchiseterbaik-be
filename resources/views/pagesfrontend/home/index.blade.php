@@ -268,9 +268,9 @@
             <img src="{{ asset('assetfrontend/images/home/article/article1.png') }}" class="card-img-top" alt="...">
             <div class="card-body">
               <small><b>20-12-2024</b></small>
-              <h5 class="card-title"><a href="">TOP COAT INDONESIA</a></h5>
-              <p class="card-text text-3-line">Bergabung bersama dengan franchiseterbaik seperti dokter mobil memberikan akses ke brand yang sudah di uji dukungan pelatihan, panduan lokasi, kualitas produk yang...</p>
-              <a href="" class="btn btn-primary py-2 px-3 mt-2">VIEW DETAIL</a>
+              <h5 class="card-title py-3"><a href="">TOP COAT INDONESIA</a></h5>
+              <p class="card-text text-3-line mb-4">Bergabung bersama dengan franchiseterbaik seperti dokter mobil memberikan akses ke brand yang sudah di uji dukungan pelatihan, panduan lokasi, kualitas produk yang...</p>
+              <a href="/article" class="btn btn-primary py-2 px-3 mt-2 mb-3">VIEW DETAIL</a>
             </div>
           </div>
         </div>
@@ -279,9 +279,9 @@
             <img src="{{ asset('assetfrontend/images/home/article/article2.png') }}" class="card-img-top" alt="...">
             <div class="card-body">
               <small><b>20-12-2024</b></small>
-              <h5 class="card-title">FRANCHISE PIJAT TERBAIK ? </h5>
-              <p class="card-text text-3-line">Bergabung bersama dengan franchiseterbaik seperti dokter mobil memberikan akses ke brand yang sudah di uji dukungan pelatihan, panduan lokasi, kualitas produk yang...</p>
-              <a href="" class="btn btn-primary py-2 px-3 mt-2">VIEW DETAIL</a>
+              <h5 class="card-title py-3">FRANCHISE PIJAT TERBAIK ? </h5>
+              <p class="card-text text-3-line mb-4">Bergabung bersama dengan franchiseterbaik seperti dokter mobil memberikan akses ke brand yang sudah di uji dukungan pelatihan, panduan lokasi, kualitas produk yang...</p>
+              <a href="/article" class="btn btn-primary py-2 px-3 mt-2 mb-3">VIEW DETAIL</a>
             </div> 
           </div>
         </div>
@@ -290,9 +290,9 @@
             <img src="{{ asset('assetfrontend/images/home/article/article3.png') }}" class="card-img-top" alt="...">
             <div class="card-body">
               <small><b>20-12-2024</b></small>
-              <h5 class="card-title">MAU PUNYA FRANCHISE CUCI HELM MOTOR ? </h5>
-              <p class="card-text text-3-line">Bergabung bersama dengan franchiseterbaik seperti dokter mobil memberikan akses </p>
-              <a href="" class="btn btn-primary py-2 px-3 mt-2">VIEW DETAIL</a>
+              <h5 class="card-title py-3">MAU PUNYA FRANCHISE CUCI HELM MOTOR ? </h5>
+              <p class="card-text text-3-line mb-4">Bergabung bersama dengan franchiseterbaik seperti dokter mobil memberikan akses </p>
+              <a href="/article" class="btn btn-primary py-2 px-3 mt-2 mb-3">VIEW DETAIL</a>
             </div>
           </div>
         </div>

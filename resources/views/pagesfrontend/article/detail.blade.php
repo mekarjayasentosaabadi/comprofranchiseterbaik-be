@@ -113,14 +113,10 @@
                             </div>
                             <div>
                                 <h3 class="fw-bold text-black">Pupular Tages</h3>
-                                <a href=""
-                                    class="badge badge-tags-news border border-2 border-primary rounded-5 fw-normal">Otomotif(78)</a>
-                                <a href=""
-                                    class="badge badge-tags-news border border-2 border-primary rounded-5 fw-normal">Franchise(80)</a>
-                                <a href=""
-                                    class="badge badge-tags-news border border-2 border-primary rounded-5 fw-normal">Franchiseterbaik(82)</a>
-                                <a href=""
-                                    class="badge badge-tags-news border border-2 border-primary rounded-5 fw-normal">Pijatkeluarga(29)</a>
+                                <a href="" class="badge mb-2 badge-tags-news border border-2 border-primary rounded-5 fw-normal">Otomotif(78)</a> 
+                                <a href="" class="badge mb-2 badge-tags-news border border-2 border-primary rounded-5 fw-normal">Franchise(80)</a> 
+                                <a href="" class="badge mb-2 badge-tags-news border border-2 border-primary rounded-5 fw-normal">Franchiseterbaik(82)</a> 
+                                <a href="" class="badge mb-2 badge-tags-news border border-2 border-primary rounded-5 fw-normal">Pijatkeluarga(29)</a> 
                             </div>
                         </div>
                     </div>
