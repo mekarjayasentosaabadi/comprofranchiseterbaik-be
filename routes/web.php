@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Backend\UserController;
 use App\Http\Controllers\Frontend\HomeController;
+use App\Http\Controllers\Backend\ArticleController;
 use App\Http\Controllers\Backend\ProductController;
 use App\Http\Controllers\Backend\ProfileController;
 use App\Http\Controllers\Backend\ListitemController;
@@ -114,6 +115,16 @@ Route::middleware('auth')->group(function () {
         //Dashboard
         Route::prefix('dashboard')->group(function(){
             Route::get('/',[DashboardController::class, 'index'])->name('dashboard.index');
+        });
+        Route::prefix('article')->group(function(){
+            Route::get('/',[ArticleController::class, 'index'])->name('article.index');
+            Route::get('/getAll', [ArticleController::class, 'getAll'])->name('article.getAll');
+            Route::get('/create', [ArticleController::class, 'create'])->name('article.create');
+            Route::post('/', [ArticleController::class, 'store'])->name('article.store');
+            Route::post('/{id}/changeStatus', [ArticleController::class, 'changeStatus'])->name('article.changeStatus');
+            Route::get('/{id}/show', [ArticleController::class, 'show'])->name('article.show');
+            // Route::post('/{id}/update', [ArticleController::class, 'update'])->name('article.update');
+            Route::post('/{id}/delete', [ArticleController::class, 'delete'])->name('article.delete');
         });
     });
 });
