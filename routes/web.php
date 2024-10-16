@@ -10,6 +10,7 @@ use App\Http\Controllers\Backend\DashboardController;
 use App\Http\Controllers\Backend\MasterwebController;
 use App\Http\Controllers\Backend\MediasocialController;
 use App\Http\Controllers\Backend\HeaderbannerController;
+use App\Http\Controllers\Frontend\FrontendArticleController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,7 +26,10 @@ use App\Http\Controllers\Backend\HeaderbannerController;
 Route::get('/', [HomeController::class, 'index'])->name('homepage');
 Route::get('/show-franchise/{slug}', [HomeController::class, 'show']);
 
-
+Route::prefix('article')->group(function(){
+    Route::get('/', [FrontendArticleController::class, 'index']);
+    Route::get('/show-article', [FrontendArticleController::class, 'show']); 
+});
 
 
 Route::get('/backpanel', function () {

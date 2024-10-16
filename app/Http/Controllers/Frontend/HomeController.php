@@ -18,7 +18,7 @@ class HomeController extends Controller
         $master       = Master::first();
         $listitems    = Listitem::where('is_active', 1)->get();
         $franchises   = Franchise::where('is_active', 1)->get();
-        return view('pagesfrontend.index', compact('listitems', 'master', 'headerbanner','franchises'));
+        return view('pagesfrontend.home.index', compact('listitems', 'master', 'headerbanner','franchises'));
     }
 
     public function show($slug)
@@ -27,6 +27,6 @@ class HomeController extends Controller
         $franchise = Franchise::where('is_active', 1)->where('slug', $slug)->first();
         $master    = Master::first();
         $franchisemedsos = Franchisemedso::where('franchises_id', $franchise->id)->get();
-        return view('pagesfrontend.detail', compact('franchise', 'master', 'franchises', 'franchisemedsos'));
+        return view('pagesfrontend.home.detail', compact('franchise', 'master', 'franchises', 'franchisemedsos'));
     }
 }
