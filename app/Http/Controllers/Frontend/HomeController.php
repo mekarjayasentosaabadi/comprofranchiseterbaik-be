@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Models\Master;
+use App\Models\Article;
 use App\Models\Listitem;
 use App\Models\Franchise;
 use App\Models\Headerbanner;
@@ -18,7 +19,8 @@ class HomeController extends Controller
         $master       = Master::first();
         $listitems    = Listitem::where('is_active', 1)->get();
         $franchises   = Franchise::where('is_active', 1)->get();
-        return view('pagesfrontend.home.index', compact('listitems', 'master', 'headerbanner','franchises'));
+        $articles     = Article::where('is_publish', 1)->latest()->take(3)->get();
+        return view('pagesfrontend.home.index', compact('listitems', 'master', 'headerbanner','franchises', 'articles'));
     }
 
     public function show($slug)
