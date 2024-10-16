@@ -74,6 +74,13 @@
                     data-feather="layers"></i><span class="menu-title text-truncate"
                     data-i18n="Kanban">Products / Franchises</span></a>
         </li>
+        <li class=" navigation-header"><span data-i18n="Apps &amp; Pages">Article </span><i
+            data-feather="more-horizontal"></i>
+        </li>
+        <li class=" nav-item {{ $menu == 'article' ? 'active' : '' }}"><a class="d-flex align-items-center" href="{{ route('article.index') }}"><i
+            data-feather="file-text"></i><span class="menu-title text-truncate"
+            data-i18n="Kanban">Article</span></a>
+        </li>
         <li class=" navigation-header"><span data-i18n="Apps &amp; Pages">Settings</span><i
             data-feather="more-horizontal"></i>
         </li>
