@@ -14,6 +14,10 @@
       <div class="site-mobile-menu-body"></div>
     </div>
 
+    {{-- header image --}}
+      @stack('header-image')
+    {{-- /header image --}}
+
     {{-- navbar --}}
         @include('layoutfrontend.navbar')
     {{-- /navbar --}}

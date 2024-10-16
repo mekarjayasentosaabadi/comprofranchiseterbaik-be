@@ -10440,3 +10440,43 @@ nav[aria-label="breadcrumb"] li:before {
     padding-top:  70px;
   }
 }
+
+
+
+.text-3-line{
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.badge-tags-news{
+  border-radius: 100px;
+  color: black;
+}
+.badge-tags-news:hover{
+  transition: all 0.3s ease-in-out;
+  border: 2px solid white !important; 
+  background: #005555;
+  color: white;
+}
+
+
+
+.header-image{
+  position: relative; 
+  height: 400px; 
+  background-color: red;
+  background-size: cover; 
+  background-position: center;
+}
+
+.header-overlay-image{
+  position: absolute;
+  top: 0; 
+  left: 0; 
+  right: 0; 
+  bottom: 0; 
+  background-color: rgba(0, 0, 0, 0.5);
+}
