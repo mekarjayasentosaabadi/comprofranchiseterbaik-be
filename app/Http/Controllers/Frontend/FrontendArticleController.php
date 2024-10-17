@@ -21,10 +21,10 @@ class FrontendArticleController extends Controller
                                ->orWhere('content', 'like', '%' . $request->search . '%')
                                ->orWhereHas('articletag.tag', function ($query) use ($request) {
                                    $query->where('name', 'like', '%' . $request->search . '%');
-                               })->where('is_publish', 1)->latest()->get();    
+                               })->where('is_publish', 1)->latest()->paginate(5)->withQueryString();    
         }
         else {
-            $articles     = Article::where('is_publish', 1)->latest()->get();
+            $articles     = Article::where('is_publish', 1)->latest()->paginate(5)->withQueryString();
         }
 
         $recentArticles     = Article::where('is_publish', 1)->latest()->take(3)->get();

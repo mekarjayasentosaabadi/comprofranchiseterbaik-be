@@ -10457,7 +10457,7 @@ nav[aria-label="breadcrumb"] li:before {
 }
 .badge-tags-news:hover{
   transition: all 0.3s ease-in-out;
-  border: 2px solid  #005555 !important; 
+  border: 1px solid  #005555 !important; 
   background: #005555;
   color: white;
 }
@@ -10479,4 +10479,18 @@ nav[aria-label="breadcrumb"] li:before {
   right: 0; 
   bottom: 0; 
   background-color: rgba(0, 0, 0, 0.5);
+}
+
+
+/* paginate */
+/* Paginate aktif */
+.pagination .page-item.active .page-link {
+    background-color: #005555; 
+    border-color: white; 
+}
+
+/* paginate hover */
+.pagination .page-item .page-link:hover {
+    background-color: #005555; 
+    color: white;
 }

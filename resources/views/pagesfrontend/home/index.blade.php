@@ -262,17 +262,17 @@
           <h1 class="fw-bold text-black">BERITA TERBARU</h1>
         </div>
       </div>
-      <div class="row row-cols-1 row-cols-md-2 g-4 mb-5">
+      <div class="row row-cols-1 row-cols-md-2 g-4 mb-5" data-aos="fade-up">
         @foreach ($articles as $article)
-            <div class="col-md-4 d-flex align-items-stretch">
+            <div class="col-md-4 d-flex align-items-stretch" >
               <div class="card">
                   <div style="height: 315px; width: 100%; overflow: hidden;">
                       <img src="{{ asset('storage/article/'.$article->thumbnail) }}" class="card-img-top"
                           style="object-fit: cover; width: 100%; height: 100%;" alt="...">
                   </div>
                   <div class="card-body d-flex flex-column">
-                      <small><b>{{ $article->created_at->format('d F Y') }}</b></small>
-                      <h5 class="card-title py-3"><a href="">{{ $article->title }}</a></h5>
+                      <small><b class="text-primary">{{ $article->created_at->format('d F Y') }}</b></small>
+                      <h5 class="card-title py-3 fw-bold"><a href="">{{ $article->title }}</a></h5>
                       <p class="card-text text-3-line mb-4">{!! Str::limit(strip_tags($article->content), 200) !!}</p>
                       <a href="/article/{{ $article->slug }}" class="btn btn-primary py-2 px-3 mt-auto" style="width: 150px">VIEW DETAIL</a>
                   </div>
@@ -280,8 +280,8 @@
           </div>
         @endforeach
       </div>
-      <div class="d-flex justify-content-center">
-          <a href="/article" class="btn btn-primary py-2 px-3">VIEW MORE</a>
+      <div class="d-flex justify-content-center" data-aos="fade-up">
+          <a href="/article" class="btn btn-primary">VIEW MORE</a>
       </div>
     </div>
   </div>
