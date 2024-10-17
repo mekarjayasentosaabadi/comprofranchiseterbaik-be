@@ -16,6 +16,9 @@
             <div class="container" style="margin-top: 100px; margin-bottom:100px;">
                 <div class="row justify-content-between mb-5" data-aos="fade-up">
                     <div class="col-lg-9 mb-5 mb-lg-0">
+                        <div style="width: 230px; height: 80px;" class="mb-3">
+                            <img style="width: 100%; height: 100%; object-fit: cover;" src="{{ asset('storage/article/'.$article->logo) }}" alt="">
+                        </div>
                         <div class="img-about ">
                             <img src="{{ asset('storage/article/'.$article->thumbnail) }}" alt="Image"
                                 class="img-fluid w-100 rounded-3" />
@@ -53,9 +56,9 @@
                                 @endforeach
                             </div>
                             <div>
-                                <h3 class="fw-bold text-black">Pupular Tages</h3>
+                                <h3 class="fw-bold text-black">Popular Tages</h3>
                                 @foreach ($populartags as $populartag)
-                                    <a href="" class="badge mb-2 badge-tags-news border border-2 border-primary rounded-5 fw-normal">{{ $populartag->name }} ({{ $populartag->articletag_count }})</a> 
+                                    <a href="/article?search={{ $populartag->name }}" class="badge mb-2 badge-tags-news border border-2 border-primary rounded-5 fw-normal">{{ $populartag->name }} ({{ $populartag->articletag_count }})</a> 
                                 @endforeach
                             </div>
                         </div>

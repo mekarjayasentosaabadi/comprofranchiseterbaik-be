@@ -11,11 +11,22 @@ use App\Models\Tag;
 
 class FrontendArticleController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
         $franchises   = Franchise::where('is_active', 1)->get();
         $master       = Master::first();
-        $articles     = Article::where('is_publish', 1)->latest()->get();
+
+        if ($request->search) {
+            $articles = Article::where('title', 'like', '%' . $request->search . '%')
+                               ->orWhere('content', 'like', '%' . $request->search . '%')
+                               ->orWhereHas('articletag.tag', function ($query) use ($request) {
+                                   $query->where('name', 'like', '%' . $request->search . '%');
+                               })->where('is_publish', 1)->latest()->get();    
+        }
+        else {
+            $articles     = Article::where('is_publish', 1)->latest()->get();
+        }
+
         $recentArticles     = Article::where('is_publish', 1)->latest()->take(3)->get();
         $populartags = Tag::withCount('articletag')
                     ->orderBy('articletag_count', 'desc')

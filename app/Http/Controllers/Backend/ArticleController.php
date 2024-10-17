@@ -80,6 +80,7 @@ class ArticleController extends Controller
                 $file->storeAs('article', $filename);
                 $dataStored['thumbnail'] = $filename;
             }
+            
             if($request->hasFile('logo')){
                 $file = $request->file('logo');
                 $filename = time().'.'.$file->getClientOriginalExtension();
