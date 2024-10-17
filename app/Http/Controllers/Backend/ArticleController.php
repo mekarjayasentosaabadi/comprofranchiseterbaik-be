@@ -64,7 +64,7 @@ class ArticleController extends Controller
             $request->validate([
                 'title'         => 'required|unique:articles,title',
                 'description'   => 'required',
-                'thumbnail'     => 'required|mimes:png,jpg,jpeg|max:2048',
+                'thumbnail'     => 'required|max:2048',
                 'tags'          => 'required'
             ],[
                 'thumbnail.max'      => 'Ukuran Thumbnail maksimal 2 MB',
@@ -76,16 +76,16 @@ class ArticleController extends Controller
             ];
             if($request->hasFile('thumbnail')){
                 $file = $request->file('thumbnail');
-                $filename = time().'.'.$file->getClientOriginalExtension();
+                $filename = 'thumb-'.time().'.'.$file->getClientOriginalExtension();
                 $file->storeAs('article', $filename);
                 $dataStored['thumbnail'] = $filename;
             }
             
             if($request->hasFile('logo')){
-                $file = $request->file('logo');
-                $filename = time().'.'.$file->getClientOriginalExtension();
-                $file->storeAs('article', $filename);
-                $dataStored['logo'] = $filename;
+                $files = $request->file('logo');
+                $filenameLogo = 'logo-'.time().'.'.$files->getClientOriginalExtension();
+                $files->storeAs('article', $filenameLogo);
+                $dataStored['logo'] = $filenameLogo;
             }
             $data = Article::create($dataStored);
             //save tags
