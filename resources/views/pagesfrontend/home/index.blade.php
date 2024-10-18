@@ -274,7 +274,7 @@
                       <small><b class="text-primary">{{ $article->created_at->format('d F Y') }}</b></small>
                       <h5 class="card-title py-3 fw-bold"><a href="">{{ $article->title }}</a></h5>
                       <p class="card-text text-3-line mb-4">{!! Str::limit(strip_tags($article->content), 200) !!}</p>
-                      <a href="/article/{{ $article->slug }}" class="btn btn-primary py-2 px-3 mt-auto" style="width: 150px">VIEW DETAIL</a>
+                      <a href="/article/{{ $article->slug }}" class="btn btn-primary py-2 px-3 mt-auto mb-4" style="width: 150px">VIEW DETAIL</a>
                   </div>
               </div>
           </div>
