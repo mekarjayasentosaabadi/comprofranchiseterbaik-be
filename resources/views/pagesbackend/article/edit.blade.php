@@ -97,8 +97,10 @@
                             notifSweetAlertSuccess(e.meta.message);
                             $('#formeditarticle').trigger('reset');
                             $('#description').val('')
+                            setTimeout(function() {
+                                location.reload()
+                            }, 1500)
                             CKEDITOR.instances.description.setData('');
-                            location.reload()
                         },
                         error: function(e){
                             if(e.status == 422){
