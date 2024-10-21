@@ -98,6 +98,7 @@
                             $('#formeditarticle').trigger('reset');
                             $('#description').val('')
                             CKEDITOR.instances.description.setData('');
+                            location.reload()
                         },
                         error: function(e){
                             if(e.status == 422){
