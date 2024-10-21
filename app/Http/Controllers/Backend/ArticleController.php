@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Backend;
 
 use App\Models\Tag;
 use App\Models\Article;
+use App\Models\Articletag;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;
@@ -57,6 +58,13 @@ class ArticleController extends Controller
         $menu = "article";
         return view('pagesbackend.article.create', compact('menu'));
     }
+    //show or edit article
+    function show($id){
+        $menu = "article";
+        $dataarticle = Article::where('id', Crypt::decrypt($id))->first();
+        // $articletags = Articletag::with(['tag'])->where('article_id', $dataarticle->id)->get();
+        return view('pagesbackend.article.edit', compact('menu', 'dataarticle'));
+    }
 
     //simpan
     function store(Request $request){
@@ -80,7 +88,7 @@ class ArticleController extends Controller
                 $file->storeAs('article', $filename);
                 $dataStored['thumbnail'] = $filename;
             }
-            
+
             if($request->hasFile('logo')){
                 $files = $request->file('logo');
                 $filenameLogo = 'logo-'.time().'.'.$files->getClientOriginalExtension();
@@ -145,6 +153,76 @@ class ArticleController extends Controller
             return ResponseFormatter::success([], 'Berhasil Menghapus Article');
         } catch (Exception $error) {
             return ResponseFormatter::error([], 'Something went wrong');
+        }
+    }
+
+    function getarticletags($id){
+        $articletags = Articletag::with(['tag'])->where('article_id', $id)->get();
+        return ResponseFormatter::success(['tagarticle' => $articletags], 'Berhasil mengambil data');
+    }
+
+    //update
+    function update(Request $request, $id){
+        try {
+            $article = Article::find($id);
+            $request->validate([
+                'title'         => 'required|unique:articles,title,'.$id.',id',
+                'description'   => 'required',
+                // 'thumbnail'     => 'required|max:2048',
+                'tags'          => 'required'
+            ]);
+            $dataStored = [
+                'title'         => $request->title,
+                'slug'          => Str::slug($request->title,'-'),
+                'content'       => $request->description,
+            ];
+            if($request->hasFile('thumbnail')){
+                $request->validate([
+                    'thumbnail'     => 'required|max:2048',
+                ],[
+                    'thumbnail.max'         => 'Ukuran file gambar maximal 2 Mb',
+                ]);
+                $file = $request->file('thumbnail');
+                $filename = 'thumb-'.uniqid().'.'.$file->getClientOriginalExtension();
+                $file->storeAs('article', $filename);
+                $dataStored['thumbnail'] = $filename;
+            }
+
+            if($request->hasFile('logo')){
+                $files = $request->file('logo');
+                $filenameLogo = 'logo-'.uniqid().'.'.$files->getClientOriginalExtension();
+                $files->storeAs('article', $filenameLogo);
+                $dataStored['logo'] = $filenameLogo;
+            }
+            $article->update($dataStored);
+            //save tags
+            Articletag::where('article_id', $id)->delete();
+            $tags = explode(',', $request->tags);
+            $tags = array_map('trim', $tags);
+            $savedTags =[];
+            $skippedTags = [];
+            foreach($tags as $tag){
+                $existingTag = Tag::where('name', $tag)->first();
+                if(!$existingTag){
+                    $tagsData = Tag::create([
+                        'name'  => $tag,
+                        'slug'  => Str::slug($tag,'-')
+                    ]);
+                    $article->articletag()->create([
+                        'tag_id' => $tagsData->id,
+                        'article_id' => $id
+                    ]);
+                    $skippedTags[] = $existingTag;
+                } else {
+                    $article->articletag()->create([
+                        'tag_id' => $existingTag->id,
+                        'article_id' => $id
+                    ]);
+                }
+            }
+            return ResponseFormatter::success([$skippedTags], 'Berhasil menyimpan data');
+        } catch (Exception $error) {
+            return ResponseFormatter::error([], 'Gagal menyimpan data');
         }
     }
 }

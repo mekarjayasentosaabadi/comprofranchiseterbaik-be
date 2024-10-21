@@ -29,7 +29,7 @@ Route::get('/show-franchise/{slug}', [HomeController::class, 'show']);
 
 Route::prefix('article')->group(function(){
     Route::get('/', [FrontendArticleController::class, 'index']);
-    Route::get('/{slug}', [FrontendArticleController::class, 'show']); 
+    Route::get('/{slug}', [FrontendArticleController::class, 'show']);
 });
 
 
@@ -123,8 +123,9 @@ Route::middleware('auth')->group(function () {
             Route::post('/', [ArticleController::class, 'store'])->name('article.store');
             Route::post('/{id}/changeStatus', [ArticleController::class, 'changeStatus'])->name('article.changeStatus');
             Route::get('/{id}/show', [ArticleController::class, 'show'])->name('article.show');
-            // Route::post('/{id}/update', [ArticleController::class, 'update'])->name('article.update');
+            Route::post('/{id}/update', [ArticleController::class, 'update'])->name('article.update');
             Route::post('/{id}/delete', [ArticleController::class, 'delete'])->name('article.delete');
+            Route::get('/{id}/getarticletags', [ArticleController::class, 'getarticletags'])->name('article.getarticletags');
         });
     });
 });
