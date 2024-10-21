@@ -19,8 +19,8 @@
                         <div style="width: 230px; height: 80px;" class="mb-3">
                             <img style="width: 100%; height: 100%; object-fit: cover;" src="{{ asset('storage/article/'.$article->logo) }}" alt="">
                         </div>
-                        <div class="img-about ">
-                            <img src="{{ asset('storage/article/'.$article->thumbnail) }}" alt="Image" class="img-fluid w-100 rounded-3" />
+                        <div style=" height: 600px">
+                            <img src="{{ asset('storage/article/'.$article->thumbnail) }}" alt="Image" class="img-fluid w-100 rounded-3" style="object-fit: cover; width: 100%; height: 100%;" />
                         </div>
                         <div class="mb-5">
                             <p class="text-black fw-bold mt-4">{{ $article->created_at->format('d F Y') }}</p>
@@ -57,9 +57,9 @@
                                 @endforeach
                             </div>
                             <div>
-                                <h3 class="fw-bold text-black mb-3">Popular Tages</h3>
-                                @foreach ($populartags as $populartag)
-                                    <a href="/article?search={{ $populartag->name }}" class="badge mb-2 badge-tags-news border border-1 border-primary rounded-1 fw-normal">{{ $populartag->name }} ({{ $populartag->articletag_count }})</a> 
+                                <h3 class="fw-bold text-black mb-3">Hastag</h3>
+                                @foreach ($hastags as $hastag)
+                                    <a href="/article?search={{ $hastag->tag->name }}" class="badge mb-2 badge-tags-news border border-1 border-primary rounded-1 fw-normal">{{ $hastag->tag->name }}</a> 
                                 @endforeach
                             </div>
                         </div>
