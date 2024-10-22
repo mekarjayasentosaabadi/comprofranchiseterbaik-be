@@ -3,17 +3,17 @@
     Article | {{ $article->title }}
 @endsection
 @section('content')
-    @push('header-image')
+    {{-- @push('header-image')
         <div class="header-image" style=" background-image: url('{{ asset('assetfrontend/images/hero_bg_1.jpg') }}');">
             <div class="header-overlay-image"></div>
             <div class="d-flex justify-content-center align-items-center h-100" style="position: relative;">
             <h3 class="text-center text-white" data-aos="fade-up">Artikel Detail</h3>
             </div>
         </div>
-    @endpush
+    @endpush --}}
     <section>
         <div class="section bg-light">
-            <div class="container" style="margin-top: 100px; margin-bottom:100px;">
+            <div class="container" style="margin-top: 200px; margin-bottom:200px;">
                 <div class="row justify-content-between mb-5" data-aos="fade-up">
                     <div class="col-lg-9 mb-5 mb-lg-0">
                         <div style="width: 230px; height: 80px;" class="mb-3">
@@ -59,7 +59,7 @@
                             <div>
                                 <h3 class="fw-bold text-black mb-3">Hastag</h3>
                                 @foreach ($hastags as $hastag)
-                                    <a href="/article?search={{ $hastag->tag->name }}" class="badge mb-2 badge-tags-news border border-1 border-primary rounded-1 fw-normal">{{ $hastag->tag->name }}</a> 
+                                    <a href="/article/hastag/{{ $hastag->tag->slug }}" class="badge mb-2 badge-tags-news border border-1 border-primary rounded-1 fw-normal">{{ $hastag->tag->name }}</a> 
                                 @endforeach
                             </div>
                         </div>
