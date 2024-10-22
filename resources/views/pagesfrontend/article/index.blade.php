@@ -75,7 +75,7 @@
                                 <div>
                                     <h3 class="fw-bold text-black mb-3">Popular Hastag</h3>
                                     @foreach ($populartags as $populartag)
-                                        <a href="/article?search={{ $populartag->name }}" class="badge mb-2 badge-tags-news border border-1 border-primary rounded-1 fw-normal">{{ $populartag->name }} ({{ $populartag->articletag_count }})</a> 
+                                        <a href="/article/hastag/{{ $populartag->name }}" class="badge mb-2 badge-tags-news border border-1 border-primary rounded-1 fw-normal">{{ $populartag->name }} ({{ $populartag->articletag_count }})</a> 
                                     @endforeach
                                 </div>
                             </div>

@@ -16,19 +16,9 @@ class FrontendArticleController extends Controller
     {
         $franchises   = Franchise::where('is_active', 1)->get();
         $master       = Master::first();
-
-        if ($request->search) {
-            $articles = Article::where('title', 'like', '%' . $request->search . '%')
-                               ->orWhere('content', 'like', '%' . $request->search . '%')
-                               ->orWhereHas('articletag.tag', function ($query) use ($request) {
-                                   $query->where('name', 'like', '%' . $request->search . '%');
-                               })->where('is_publish', 1)->latest()->paginate(5)->withQueryString();    
-        }
-        else {
-            $articles     = Article::where('is_publish', 1)->latest()->paginate(5)->withQueryString();
-        }
-
+        $articles     = Article::where('is_publish', 1)->latest()->paginate(5)->withQueryString();
         $recentArticles     = Article::where('is_publish', 1)->latest()->take(3)->get();
+
         $populartags = Tag::withCount('articletag')
                     ->orderBy('articletag_count', 'desc')
                     ->take(5)                           
@@ -44,5 +34,20 @@ class FrontendArticleController extends Controller
         $recentArticles     = Article::where('is_publish', 1)->latest()->take(3)->get();
         $hastags      = Articletag::where('article_id', $article->id)->get();
         return view('pagesfrontend.article.detail', compact('franchises', 'master', 'article', 'recentArticles', 'hastags'));
+    }
+
+    public function filterbytag($tag)
+    {
+        $franchises   = Franchise::where('is_active', 1)->get();
+        $master       = Master::first();
+        $articles     = null;
+
+        if ($tag) {
+            $articles = Article::where('is_publish', 1)
+                                ->whereHas('articletag.tag', function ($query) use ($tag) {
+                                    $query->where('slug', $tag);
+                                })->get();
+        }
+        return view('pagesfrontend.article.filtertag', compact('franchises', 'master', 'articles', 'tag'));
     }
 }
