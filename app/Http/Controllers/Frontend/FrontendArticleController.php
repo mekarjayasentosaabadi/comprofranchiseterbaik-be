@@ -46,8 +46,10 @@ class FrontendArticleController extends Controller
             $articles = Article::where('is_publish', 1)
                                 ->whereHas('articletag.tag', function ($query) use ($tag) {
                                     $query->where('slug', $tag);
-                                })->get();
+                                })->latest()->paginate(9)->withQueryString();
+            $tagquery = Tag::where('slug', $tag)->first();
+            $tagname  = $tagquery->name;
         }
-        return view('pagesfrontend.article.filtertag', compact('franchises', 'master', 'articles', 'tag'));
+        return view('pagesfrontend.article.filtertag', compact('franchises', 'master', 'articles', 'tagname'));
     }
 }

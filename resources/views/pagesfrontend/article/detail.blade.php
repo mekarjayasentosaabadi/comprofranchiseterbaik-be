@@ -59,7 +59,7 @@
                             <div>
                                 <h3 class="fw-bold text-black mb-3">Hastag</h3>
                                 @foreach ($hastags as $hastag)
-                                    <a href="/article/hastag/{{ $hastag->tag->name }}" class="badge mb-2 badge-tags-news border border-1 border-primary rounded-1 fw-normal">{{ $hastag->tag->name }}</a> 
+                                    <a href="/article/hastag/{{ $hastag->tag->slug }}" class="badge mb-2 badge-tags-news border border-1 border-primary rounded-1 fw-normal">{{ $hastag->tag->name }}</a> 
                                 @endforeach
                             </div>
                         </div>

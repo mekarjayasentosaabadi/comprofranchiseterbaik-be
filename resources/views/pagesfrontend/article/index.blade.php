@@ -33,7 +33,7 @@
                                             </div>
                                             <div class="card-body d-flex flex-column">
                                                 <small><b class="text-primary">{{ $article->created_at->format('d F Y') }}</b></small>
-                                                <h5 class="card-title py-3 fw-bold"><a href="">{{ $article->title }}</a></h5>
+                                                <h5 class="card-title py-3 fw-bold"><a href="/article/{{ $article->slug }}">{{ $article->title }}</a></h5>
                                                 <p class="card-text text-3-line mb-4">{!! Str::limit(strip_tags($article->content), 200) !!}</p>
                                                 <a href="/article/{{ $article->slug }}" class="btn btn-primary py-2 px-3 mt-auto" style="width: 150px">VIEW DETAIL</a>
                                             </div>
@@ -75,7 +75,7 @@
                                 <div>
                                     <h3 class="fw-bold text-black mb-3">Popular Hastag</h3>
                                     @foreach ($populartags as $populartag)
-                                        <a href="/article/hastag/{{ $populartag->name }}" class="badge mb-2 badge-tags-news border border-1 border-primary rounded-1 fw-normal">{{ $populartag->name }} ({{ $populartag->articletag_count }})</a> 
+                                        <a href="/article/hastag/{{ $populartag->slug }}" class="badge mb-2 badge-tags-news border border-1 border-primary rounded-1 fw-normal">{{ $populartag->name }} ({{ $populartag->articletag_count }})</a> 
                                     @endforeach
                                 </div>
                             </div>
