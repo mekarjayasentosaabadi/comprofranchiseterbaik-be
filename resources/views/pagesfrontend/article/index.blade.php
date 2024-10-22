@@ -49,7 +49,7 @@
                         <div class="col-lg-3">
                             <div class="fs-4">
                                 <div class="mb-5">
-                                    <h3 class="fw-bold text-black">Recent</h3>
+                                    <h3 class="fw-bold text-black mb-3">Recent</h3>
                                     @foreach ($recentArticles as $recentArticle)
                                         <div class="card border-0 bg-transparent">
                                             <a href="/article/{{ $recentArticle->slug }}">
