@@ -6,7 +6,7 @@
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="#">Article</a></li>
-            <li class="breadcrumb-item active">Create</li>
+            <li class="breadcrumb-item active">Update</li>
         </ol>
     </nav>
 @endsection
@@ -15,18 +15,21 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
-                    <h4 class="card-title">Create Article</h4>
+                    <h4 class="card-title">Update Article</h4>
                     <a href="{{ route('article.index') }}" class="btn btn-warning btn-sm">
                         <li class="fa fa-undo"></li> Kembali
                     </a>
                 </div>
                 <div class="card-body">
-                    <form action="" id="formaddarticle" enctype="multipart/form-data">
+                    <form action="" id="formeditarticle" enctype="multipart/form-data">
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">
+                                    <img src="{{ asset('storage/article/'.$dataarticle->thumbnail) }}" alt="" class="img-thumbnail" width="400px">
+                                </div>
+                                <div class="form-group mt-2">
                                     <label for="">Title</label>
-                                    <input type="text" name="title" class="form-control" id="title" placeholder="Title">
+                                    <input type="text" name="title" class="form-control" id="title" placeholder="Title" value="{{ $dataarticle->title }}">
                                 </div>
                                 <div class="form-group mt-1">
                                     <label for="">Thumbnail</label>
@@ -34,11 +37,14 @@
                                 </div>
                                 <div class="form-group mt-1">
                                     <label for="">Descripton</label>
-                                    <textarea name="description" id="description" cols="30" rows="10" class="form-control"></textarea>
+                                    <textarea name="description" id="description" cols="30" rows="10" class="form-control">
+                                        {!! $dataarticle->content !!}
+                                    </textarea>
                                 </div>
                                 <div class="form-group mt-1">
                                     <label for="">Tags</label>
-                                    <input type="text" id="tags" name="tags" class="form-control" placeholder="contoh: tag1, tag2, tag3">
+                                    <input type="text" id="tags" name="tags" class="form-control" placeholder="contoh: tag1, tag2, tag3"
+                                    value="">
                                 </div>
                                 <div class="form-group mt-1">
                                     <label for="">Logo</label>
@@ -60,6 +66,7 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="{{ asset('js/notifsweetalert.js') }}"></script>
     <script>
+        var articleTags = [];
         var options = {
             filebrowserImageBrowseUrl: '/laravel-filemanager?type=Images',
             filebrowserImageUploadUrl: '/laravel-filemanager/upload?type=Images&_token=',
@@ -69,18 +76,17 @@
         CKEDITOR.replace('description', options)
 
         $(document).ready(function() {
-            $('#formaddarticle').validate({
+            $('#formeditarticle').validate({
                 rules: {
                     'title' : 'required',
-                    'thumbnail'  : 'required',
                     'description' : 'required',
                     'tags'  : 'required'
                 },
                 submitHandler: function(e){
-                    var formData = new FormData($('#formaddarticle')[0]);
+                    var formData = new FormData($('#formeditarticle')[0]);
                     formData.append('description', CKEDITOR.instances.description.getData());
                     $.ajax({
-                        url: "{{ route('article.store') }}",
+                        url: window.location.origin + '/' + listRoutes['article.update'].replace('{id}', "{{ $dataarticle->id }}"),
                         type: "POST",
                         dataType: "JSON",
                         data: formData,
@@ -89,7 +95,7 @@
                         success: function(e){
                             console.log(e)
                             notifSweetAlertSuccess(e.meta.message);
-                            $('#formaddarticle').trigger('reset');
+                            $('#formeditarticle').trigger('reset');
                             $('#description').val('')
                             CKEDITOR.instances.description.setData('');
                         },
@@ -106,5 +112,26 @@
             })
         })
 
+        $.getJSON(window.location.origin + '/' + listRoutes['article.getarticletags'].replace('{id}', "{{ $dataarticle->id }}"), function(e){
+
+        }).done(function(e){
+            if(e.data.tagarticle.length > 0){
+                e.data.tagarticle.map((x,i)=>{
+                    let data = {
+                        id: x.id,
+                        text: x.tag.name
+                    }
+                    articleTags.push(data)
+                })
+            }
+            getTags()
+        })
+
+        //getTags
+        const getTags = () => {
+            $('#tags').val('')
+            const tagNames =  articleTags.map(item => item.text);
+            $('#tags').val(tagNames)
+        }
     </script>
 @endpush
