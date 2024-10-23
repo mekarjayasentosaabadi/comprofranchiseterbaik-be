@@ -149,6 +149,7 @@ class ArticleController extends Controller
         try {
             $find = Article::where('id', $id)->first();
             $find->delete();
+            $find->articletag()->where('article_id', $id)->delete();
             Storage::delete('article/'.$find->thumbnail);
             return ResponseFormatter::success([], 'Berhasil Menghapus Article');
         } catch (Exception $error) {
