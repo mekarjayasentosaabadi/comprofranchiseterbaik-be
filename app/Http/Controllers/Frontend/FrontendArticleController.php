@@ -20,9 +20,10 @@ class FrontendArticleController extends Controller
         $recentArticles     = Article::where('is_publish', 1)->latest()->take(3)->get();
 
         $populartags = Tag::withCount('articletag')
-                    ->orderBy('articletag_count', 'desc')
-                    ->take(5)                           
-                    ->get();
+                        ->having('articletag_count', '>', 0) 
+                        ->orderBy('articletag_count', 'desc')
+                        ->take(5)                           
+                        ->get();
         return view('pagesfrontend.article.index', compact('franchises', 'master', 'articles', 'recentArticles', 'populartags'));
     }
 
