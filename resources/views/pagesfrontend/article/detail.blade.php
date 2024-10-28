@@ -25,7 +25,7 @@
                             <img src="{{ asset('storage/article/'.$article->thumbnail) }}" alt="Image" class="img-fluid w-100 rounded-3" style="object-fit: cover; width: 100%; height: 100%;" />
                         </div>
                         <div class="mb-5">
-                            <p class="text-black fw-bold mt-4 text-primary">
+                            <p class="fw-bold mt-4 text-primary">
                                {{  \Carbon\Carbon::parse($article->publishdate ?? $article->created_at)->format('d F Y')  }}
                             </p>
                             <h1 class="mb-4 fw-bold text-dark fs-3">{{ $article->title }}</h1>
