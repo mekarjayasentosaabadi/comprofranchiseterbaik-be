@@ -73,7 +73,11 @@
                                                         <div class="card-body p-0">
                                                             <div style="font-size: 12px;" class="text-black text-start">{{ $recentArticle->title }}</div>
                                                             {{-- <div style="font-size: 12px;" class="text-black text-start">{!! Str::limit(strip_tags($article->content), 50) !!}</div> --}}
-                                                            <div style="font-size: 12px;"><small class="text-primary">{{ $recentArticle->created_at->format('d F Y') }}</small></div>
+                                                            <div style="font-size: 12px;">
+                                                                <small class="text-primary">
+                                                                {{ \Carbon\Carbon::parse($recentArticle->publishdate ?? $recentArticle->created_at)->format('d F Y')  }}
+                                                            </small>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
