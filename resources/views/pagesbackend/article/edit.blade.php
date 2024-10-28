@@ -36,6 +36,10 @@
                                     <input type="file" name="thumbnail" id="thumbnail" class="form-control">
                                 </div>
                                 <div class="form-group mt-1">
+                                    <label for="">Tanggal Publish</label>
+                                    <input type="date" name="publishdate" id="publishdate" class="form-control" value="{{ $dataarticle->publishdate }}">
+                                </div>
+                                <div class="form-group mt-1">
                                     <label for="">Descripton</label>
                                     <textarea name="description" id="description" cols="30" rows="10" class="form-control">
                                         {!! $dataarticle->content !!}

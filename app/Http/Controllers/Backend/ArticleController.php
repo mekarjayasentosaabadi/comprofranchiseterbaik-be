@@ -20,7 +20,7 @@ class ArticleController extends Controller
         return view('pagesbackend.article.index', compact('menu'));
     }
     function getAll(){
-        $tbl = Article::all();
+        $tbl = Article::all()->sortByDesc('publishdate');
 
         return DataTables::of($tbl)
             ->addColumn('action', function($x){
@@ -49,7 +49,10 @@ class ArticleController extends Controller
                 $img = '<img src="'.$gambar.'" width="50px" class="img-fluid">';
                 return $img;
             })
-            ->rawColumns(['action', 'pictures', 'toggle'])
+            ->editColumn('publishdate', function($x){
+                return date('d-M-Y', strtotime($x->publishdate));
+            })
+            ->rawColumns(['action', 'pictures', 'toggle', 'publishdate'])
             ->addIndexColumn()
             ->make(true);
     }
@@ -73,7 +76,8 @@ class ArticleController extends Controller
                 'title'         => 'required|unique:articles,title',
                 'description'   => 'required',
                 'thumbnail'     => 'required|max:2048',
-                'tags'          => 'required'
+                'tags'          => 'required',
+                'publishdate'   => 'required'
             ],[
                 'thumbnail.max'      => 'Ukuran Thumbnail maksimal 2 MB',
             ]);
@@ -81,6 +85,7 @@ class ArticleController extends Controller
                 'title'         => $request->title,
                 'slug'          => Str::slug($request->title,'-'),
                 'content'       => $request->description,
+                'publishdate'   => $request->publishdate
             ];
             if($request->hasFile('thumbnail')){
                 $file = $request->file('thumbnail');
@@ -170,12 +175,14 @@ class ArticleController extends Controller
                 'title'         => 'required|unique:articles,title,'.$id.',id',
                 'description'   => 'required',
                 // 'thumbnail'     => 'required|max:2048',
-                'tags'          => 'required'
+                'tags'          => 'required',
+                'publishdate'   => 'required'
             ]);
             $dataStored = [
                 'title'         => $request->title,
                 'slug'          => Str::slug($request->title,'-'),
                 'content'       => $request->description,
+                'publishdate'   => $request->publishdate
             ];
             if($request->hasFile('thumbnail')){
                 $request->validate([

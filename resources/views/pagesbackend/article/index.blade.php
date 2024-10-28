@@ -30,6 +30,7 @@
                                             <th>#</th>
                                             <th>Thumbnail</th>
                                             <th>Title</th>
+                                            <th>Tanggal Publish</th>
                                             <th>Status Publish</th>
                                             <th>Aksi</th>
                                         </tr>
@@ -66,6 +67,10 @@
                     {
                         data: 'title',
                         name: 'title'
+                    },
+                    {
+                        data: 'publishdate',
+                        name: 'publishdate'
                     },
                     {
                         data: 'toggle',
