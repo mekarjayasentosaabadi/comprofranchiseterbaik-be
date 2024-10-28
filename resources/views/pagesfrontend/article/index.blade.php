@@ -16,7 +16,11 @@
                                 </div>
                             </div>
                             <div class="mb-5">
-                                <p class="text-black fw-bold text-primary">{{ $articles[0]->created_at->format('d F Y') }}</p>
+                                <p class="text-black fw-bold text-primary">
+                                    {{ 
+                                        \Carbon\Carbon::parse($articles[0]->publishdate ?? $articles[0]->created_at)->format('d F Y') 
+                                    }}  
+                                </p>
                                 <h1 class="mb-4 fw-bold text-dark fs-3">{{ $articles[0]->title }}</h1>
                                 <p class="fs-5 text-black mb-3 text-black">   {!! Str::limit(strip_tags($articles[0]->content), 100) !!}</p>
                                 <a href="/article/{{ $articles[0]->slug }}" class="btn btn-primary  mt-3">VIEW DETAIL</a>
@@ -32,8 +36,14 @@
                                                     style="object-fit: cover; width: 100%; height: 100%;" alt="...">
                                             </div>
                                             <div class="card-body d-flex flex-column">
-                                                <small><b class="text-primary">{{ $article->created_at->format('d F Y') }}</b></small>
-                                                <h5 class="card-title py-3 fw-bold"><a href="/article/{{ $article->slug }}">{{ $article->title }}</a></h5>
+                                                <small>
+                                                   <b class="text-primary">
+                                                        {{ 
+                                                            \Carbon\Carbon::parse($article->publishdate ?? $article->created_at)->format('d F Y') 
+                                                        }}    
+                                                    </b>
+                                                </small>
+                                                <h5 class="card-title py-3 fw-bold"><a class="text-black" href="/article/{{ $article->slug }}">{{ $article->title }}</a></h5>
                                                 {{-- <p class="card-text text-3-line mb-4">{!! Str::limit(strip_tags($article->content), 200) !!}</p> --}}
                                                 <a href="/article/{{ $article->slug }}" class="btn btn-primary py-2 px-3 mt-auto" style="width: 150px">VIEW DETAIL</a>
                                             </div>
