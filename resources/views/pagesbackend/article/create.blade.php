@@ -33,6 +33,10 @@
                                     <input type="file" name="thumbnail" id="thumbnail" class="form-control">
                                 </div>
                                 <div class="form-group mt-1">
+                                    <label for="">Tanggal Publish</label>
+                                    <input type="date" name="publishdate" id="publishdate" class="form-control">
+                                </div>
+                                <div class="form-group mt-1">
                                     <label for="">Descripton</label>
                                     <textarea name="description" id="description" cols="30" rows="10" class="form-control"></textarea>
                                 </div>
@@ -74,7 +78,8 @@
                     'title' : 'required',
                     'thumbnail'  : 'required',
                     'description' : 'required',
-                    'tags'  : 'required'
+                    'tags'  : 'required',
+                    'publishdate'  : 'required',
                 },
                 submitHandler: function(e){
                     var formData = new FormData($('#formaddarticle')[0]);

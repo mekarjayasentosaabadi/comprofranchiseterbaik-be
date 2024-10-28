@@ -11,13 +11,17 @@
                                 <img style="width: 100%; height: 100%; object-fit: cover;" src="{{ asset('storage/article/'.$articles[0]->logo) }}" alt="">
                             </div> --}}
                             <div class="img-about mb-4">
-                                <div style=" height: 600px">
+                                <div class="container-image-hiro-article">
                                     <img src="{{ asset('storage/article/'.$articles[0]->thumbnail) }}" alt="Image" class="img-fluid w-100 rounded-3" style="object-fit: cover; width: 100%; height: 100%;" />
                                 </div>
                             </div>
                             <div class="mb-5">
-                                <p class="text-black fw-bold">{{ $articles[0]->created_at->format('d F Y') }}</p>
-                                <h1 class="mb-4 fw-bold">{{ $articles[0]->title }}</h1>
+                                <p class="text-black fw-bold text-primary">
+                                    {{ 
+                                        \Carbon\Carbon::parse($articles[0]->publishdate ?? $articles[0]->created_at)->format('d F Y') 
+                                    }}  
+                                </p>
+                                <h1 class="mb-4 fw-bold text-dark fs-3">{{ $articles[0]->title }}</h1>
                                 <p class="fs-5 text-black mb-3 text-black">   {!! Str::limit(strip_tags($articles[0]->content), 100) !!}</p>
                                 <a href="/article/{{ $articles[0]->slug }}" class="btn btn-primary  mt-3">VIEW DETAIL</a>
                             </div>
@@ -32,9 +36,15 @@
                                                     style="object-fit: cover; width: 100%; height: 100%;" alt="...">
                                             </div>
                                             <div class="card-body d-flex flex-column">
-                                                <small><b class="text-primary">{{ $article->created_at->format('d F Y') }}</b></small>
-                                                <h5 class="card-title py-3 fw-bold"><a href="/article/{{ $article->slug }}">{{ $article->title }}</a></h5>
-                                                <p class="card-text text-3-line mb-4">{!! Str::limit(strip_tags($article->content), 200) !!}</p>
+                                                <small>
+                                                   <b class="text-primary">
+                                                        {{ 
+                                                            \Carbon\Carbon::parse($article->publishdate ?? $article->created_at)->format('d F Y') 
+                                                        }}    
+                                                    </b>
+                                                </small>
+                                                <h5 class="card-title py-3 fw-bold"><a class="text-black" href="/article/{{ $article->slug }}">{{ $article->title }}</a></h5>
+                                                {{-- <p class="card-text text-3-line mb-4">{!! Str::limit(strip_tags($article->content), 200) !!}</p> --}}
                                                 <a href="/article/{{ $article->slug }}" class="btn btn-primary py-2 px-3 mt-auto" style="width: 150px">VIEW DETAIL</a>
                                             </div>
                                         </div>
@@ -63,7 +73,11 @@
                                                         <div class="card-body p-0">
                                                             <div style="font-size: 12px;" class="text-black text-start">{{ $recentArticle->title }}</div>
                                                             {{-- <div style="font-size: 12px;" class="text-black text-start">{!! Str::limit(strip_tags($article->content), 50) !!}</div> --}}
-                                                            <div style="font-size: 12px;"><small class="text-primary">{{ $recentArticle->created_at->format('d F Y') }}</small></div>
+                                                            <div style="font-size: 12px;">
+                                                                <small class="text-primary">
+                                                                    {{ \Carbon\Carbon::parse($recentArticle->publishdate ?? $recentArticle->created_at)->format('d F Y')  }}
+                                                                </small>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>

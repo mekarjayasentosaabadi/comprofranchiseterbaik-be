@@ -16,15 +16,19 @@
             <div class="container" style="margin-top: 200px; margin-bottom:200px;">
                 <div class="row justify-content-between mb-5" data-aos="fade-up">
                     <div class="col-lg-9 mb-5 mb-lg-0">
-                        <div style="width: 230px; height: 80px;" class="mb-3">
-                            <img style="width: 100%; height: 100%; object-fit: cover;" src="{{ asset('storage/article/'.$article->logo) }}" alt="">
-                        </div>
-                        <div style=" height: 600px">
+                        @if ($article->logo != null)
+                            <div class="container-image-logo-article" class="mb-4">
+                                <img style="width: 100%; height: 100%; object-fit: cover;" src="{{ asset('storage/article/'.$article->logo) }}" alt="">
+                            </div>
+                        @endif
+                        <div class="container-image-hiro-article mt-2">
                             <img src="{{ asset('storage/article/'.$article->thumbnail) }}" alt="Image" class="img-fluid w-100 rounded-3" style="object-fit: cover; width: 100%; height: 100%;" />
                         </div>
                         <div class="mb-5">
-                            <p class="text-black fw-bold mt-4">{{ $article->created_at->format('d F Y') }}</p>
-                            <h1 class="mb-4 fw-bold">{{ $article->title }}</h1>
+                            <p class="fw-bold mt-4 text-primary">
+                               {{  \Carbon\Carbon::parse($article->publishdate ?? $article->created_at)->format('d F Y')  }}
+                            </p>
+                            <h1 class="mb-4 fw-bold text-dark fs-3">{{ $article->title }}</h1>
                             <div class="text-black fs-6 text-dark">
                                {!! $article->content !!}
                             </div>
@@ -47,7 +51,11 @@
                                                     <div class="card-body p-0">
                                                         <div style="font-size: 12px;" class="text-black text-start">{{ $recentArticle->title }}</div>
                                                         {{-- <div style="font-size: 12px;" class="text-black text-start">{!! Str::limit(strip_tags($article->content), 50) !!}</div> --}}
-                                                        <div style="font-size: 12px;"><small class="text-primary">{{ $recentArticle->created_at->format('d F Y') }}</small></div>
+                                                        <div style="font-size: 12px;">
+                                                            <small class="text-primary">
+                                                                {{ \Carbon\Carbon::parse($recentArticle->publishdate ?? $recentArticle->created_at)->format('d F Y')  }}
+                                                            </small>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
