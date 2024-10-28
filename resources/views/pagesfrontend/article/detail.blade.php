@@ -16,15 +16,17 @@
             <div class="container" style="margin-top: 200px; margin-bottom:200px;">
                 <div class="row justify-content-between mb-5" data-aos="fade-up">
                     <div class="col-lg-9 mb-5 mb-lg-0">
-                        <div style="width: 230px; height: 80px;" class="mb-3">
-                            <img style="width: 100%; height: 100%; object-fit: cover;" src="{{ asset('storage/article/'.$article->logo) }}" alt="">
-                        </div>
-                        <div style=" height: 600px">
+                        @if ($article->logo != null)
+                            <div class="container-image-logo-article" class="mb-4">
+                                <img style="width: 100%; height: 100%; object-fit: cover;" src="{{ asset('storage/article/'.$article->logo) }}" alt="">
+                            </div>
+                        @endif
+                        <div class="container-image-hiro-article mt-2">
                             <img src="{{ asset('storage/article/'.$article->thumbnail) }}" alt="Image" class="img-fluid w-100 rounded-3" style="object-fit: cover; width: 100%; height: 100%;" />
                         </div>
                         <div class="mb-5">
-                            <p class="text-black fw-bold mt-4">{{ $article->created_at->format('d F Y') }}</p>
-                            <h1 class="mb-4 fw-bold">{{ $article->title }}</h1>
+                            <p class="text-black fw-bold mt-4 text-primary">{{ $article->created_at->format('d F Y') }}</p>
+                            <h1 class="mb-4 fw-bold text-dark fs-3">{{ $article->title }}</h1>
                             <div class="text-black fs-6 text-dark">
                                {!! $article->content !!}
                             </div>

@@ -10494,3 +10494,28 @@ nav[aria-label="breadcrumb"] li:before {
     background-color: #005555; 
     color: white;
 }
+
+
+.container-image-hiro-article
+{
+  height: 600px !important;
+}
+.container-image-logo-article
+{
+  width: 230px !important; 
+  height: 80px !important;
+  margin-bottom: 20px !important;
+}
+
+@media (max-width: 990px) {
+  .container-image-logo-article{
+    width: 150px !important;
+    height: 50px !important;
+  }
+
+  .container-image-hiro-article
+  {
+    height: 350px !important;
+  }
+
+}
