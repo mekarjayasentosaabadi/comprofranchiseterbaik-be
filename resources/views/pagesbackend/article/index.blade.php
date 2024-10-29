@@ -29,6 +29,7 @@
                                         <tr>
                                             <th>#</th>
                                             <th>Thumbnail</th>
+                                            <th>Logo</th>
                                             <th>Title</th>
                                             <th>Tanggal Publish</th>
                                             <th>Status Publish</th>
@@ -63,6 +64,10 @@
                     {
                         data: 'pictures',
                         name: 'pictures'
+                    },
+                    {
+                        data: 'logo',
+                        name: 'logo'
                     },
                     {
                         data: 'title',
@@ -115,6 +120,33 @@
                 if (result.isConfirmed) {
                     $.ajax({
                         url: window.location.origin + '/' + listRoutes['article.delete'].replace('{id}', i),
+                        type: "POST",
+                        dataType: "JSON",
+                        processData: false,
+                        contentType: false,
+                        success: function(e) {
+                            notifSweetAlertSuccess(e.meta.message);
+                            table.ajax.reload()
+                        },
+                        error: function(e) {
+                            console.log(e)
+                        }
+                    })
+                }
+            })
+        }
+        function deleteLogo(txt, id){
+            Swal.fire({
+                title: 'Konfirmasi',
+                text: 'Apakah Anda yakin ingin akan menghapus logo pada artikel tersebut.?',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'Ya, Lanjutkan!',
+                cancelButtonText: 'Batal'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    $.ajax({
+                        url: window.location.origin + '/' + listRoutes['article.deletelogo'].replace('{id}', id),
                         type: "POST",
                         dataType: "JSON",
                         processData: false,

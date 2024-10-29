@@ -126,6 +126,7 @@ Route::middleware('auth')->group(function () {
             Route::get('/{id}/show', [ArticleController::class, 'show'])->name('article.show');
             Route::post('/{id}/update', [ArticleController::class, 'update'])->name('article.update');
             Route::post('/{id}/delete', [ArticleController::class, 'delete'])->name('article.delete');
+            Route::post('/{id}/deletelogo', [ArticleController::class, 'deletelogo'])->name('article.deletelogo');
             Route::get('/{id}/getarticletags', [ArticleController::class, 'getarticletags'])->name('article.getarticletags');
         });
     });

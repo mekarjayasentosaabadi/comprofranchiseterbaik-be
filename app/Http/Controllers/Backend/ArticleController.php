@@ -24,9 +24,11 @@ class ArticleController extends Controller
 
         return DataTables::of($tbl)
             ->addColumn('action', function($x){
+                $statusLogo = $x->logo == null ? 'd-none' : '';
                 $btn = '<div>';
-                $btn .='<a href="'.route('article.show',Crypt::encrypt($x->id)).'" class="btn btn-warning btn-sm" title="Edit Article"><li class="fa fa-edit"></li></a> ';
-                $btn .='<button class="btn btn-danger btn-sm" onclick="deleteList(this,'.$x->id.')"><li class="fa fa-trash" ></li></button>';
+                $btn .='<a href="'.route('article.show',Crypt::encrypt($x->id)).'" class="btn btn-warning btn-sm" title="Edit Article"><li class="fa fa-edit"></li></a>';
+                $btn .='<button class="btn btn-danger btn-sm" title="Hapus Article" onclick="deleteList(this,'.$x->id.')"><li class="fa fa-trash" ></li></button>';
+                $btn .='<button class="btn btn-danger btn-sm '.$statusLogo.' " title="Hapus Logo" onclick="deleteLogo(this,'.$x->id.')"><li class="fa fa-image" ></li></button>';
                 $btn .= '</div>';
                 return $btn;
             })
@@ -49,10 +51,21 @@ class ArticleController extends Controller
                 $img = '<img src="'.$gambar.'" width="50px" class="img-fluid">';
                 return $img;
             })
+            ->editColumn('logo', function($x){
+                $logo = $x->logo;
+                if($logo == NULL){
+                    $gambar ='-';
+                    return $gambar;
+                } else {
+                    $img = asset('storage/article/'.$logo);
+                    $gambar = '<img src="'.$img.'" width="50px" class="img-fluid">';
+                    return $gambar;
+                }
+            })
             ->editColumn('publishdate', function($x){
                 return date('d-M-Y', strtotime($x->publishdate));
             })
-            ->rawColumns(['action', 'pictures', 'toggle', 'publishdate'])
+            ->rawColumns(['action', 'pictures', 'toggle', 'publishdate', 'logo'])
             ->addIndexColumn()
             ->make(true);
     }
@@ -162,6 +175,16 @@ class ArticleController extends Controller
         }
     }
 
+    function deletelogo($id){
+        try {
+            $find = Article::where('id', $id)->first();
+            $find->logo = null;
+            $find->update();
+            return ResponseFormatter::success([], 'Berhasil Menghapus Logo');
+        } catch (Exception $error) {
+            return ResponseFormatter::error([], 'Something went wrong');
+        }
+    }
     function getarticletags($id){
         $articletags = Articletag::with(['tag'])->where('article_id', $id)->get();
         return ResponseFormatter::success(['tagarticle' => $articletags], 'Berhasil mengambil data');
